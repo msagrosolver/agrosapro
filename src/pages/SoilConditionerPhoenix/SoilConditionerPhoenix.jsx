@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import PageHero from '../../components/PageHero/PageHero.jsx';
 import './SoilConditionerPhoenix.css';
 
@@ -169,7 +168,6 @@ function TabContent({ activeTab }) {
 
 function SoilConditionerPhoenix() {
   const [activeTab, setActiveTab] = useState('Composition');
-  const navigate = useNavigate();
 
   return (
     <main>
@@ -177,18 +175,15 @@ function SoilConditionerPhoenix() {
         eyebrow="Soil Conditioner"
         title="Agrosapro pHoenix"
         subtitle="Advanced pH correction with sulfur-containing formula for saline, exhausted and disturbed soils."
+        breadcrumbs={[
+          { label: 'Products', to: '/' },
+          { label: 'Soil Conditioners', to: '/products/soil-conditioners' },
+          { label: 'Agrosapro pHoenix', to: '/products/soil-conditioners/phoenix' },
+        ]}
       />
 
       <section className="soil-detail product-detail-content">
         <div className="soil-detail__inner">
-          <div className="back-button-container">
-            <button className="back-button" type="button" onClick={() => navigate(-1)} aria-label="Go back">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 4L6 9L11 14" stroke="#2D5A1B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
-
           <div className="detail-tabs" role="tablist" aria-label="Agrosapro pHoenix details">
             {tabs.map((tab) => (
               <button

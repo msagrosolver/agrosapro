@@ -49,6 +49,37 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.page-hero-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.breadcrumb-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 4px;
+}
+
+.breadcrumb-current {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+}
+
 @media (max-width: 680px) {
   .page-hero {
     min-height: 380px;

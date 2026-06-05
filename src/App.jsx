@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar.jsx';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import AboutPage from './pages/About/About.jsx';
 import ContactPage from './pages/Contact/Contact.jsx';
@@ -16,6 +17,7 @@ import TechnologyPage from './pages/Technology/Technology.jsx';
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />

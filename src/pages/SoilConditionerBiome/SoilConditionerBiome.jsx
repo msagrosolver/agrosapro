@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageHero from '../../components/PageHero/PageHero.jsx';
 import plantyImage from '../../assets/images/planty.jpg';
 import './SoilConditionerBiome.css';
@@ -162,14 +163,23 @@ function TabContent({ activeTab }) {
 
 function SoilConditionerBiome() {
   const [activeTab, setActiveTab] = useState('Composition');
+  const navigate = useNavigate();
 
   return (
     <main>
-      <PageHero
-        eyebrow="Soil Conditioner"
-        title="Agrosapro Biome"
-        subtitle="Base soil improver for all agricultural soils based on organic sapropel and lowland peat."
-      />
+      <div style={{ position: 'relative' }}>
+        <PageHero
+          eyebrow="Soil Conditioner"
+          title="Agrosapro Biome"
+          subtitle="Base soil improver for all agricultural soils based on organic sapropel and lowland peat."
+        />
+
+        <button className="back-button" type="button" onClick={() => navigate(-1)} aria-label="Go back">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 4L6 9L11 14" stroke="#2D5A1B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
 
       <section className="soil-detail">
         <div className="soil-detail__inner">

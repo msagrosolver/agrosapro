@@ -1,3 +1,27 @@
+.back-button {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 10;
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(45, 90, 27, 0.25);
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.back-button:hover {
+  background: #eaf3de;
+  border-color: #2d5a1b;
+  transform: translateX(-2px);
+}
+
 .soil-detail {
   padding: 80px 24px;
   background: #fff;

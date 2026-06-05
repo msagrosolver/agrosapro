@@ -58,3 +58,27 @@
     padding-top: 88px;
   }
 }
+
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 320px;
+    padding: 100px 20px 48px;
+  }
+
+  .page-hero-content h1,
+  .page-hero__title {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .page-hero-content .eyebrow,
+  .page-hero__eyebrow {
+    font-size: 10px;
+  }
+
+  .page-hero-content p,
+  .page-hero__subtitle {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}

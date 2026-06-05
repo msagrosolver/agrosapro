@@ -7,14 +7,11 @@ import './SoilConditioners.css';
 const previewCards = [
   {
     to: '/products/soil-conditioners/biome',
-    description:
-      'Base soil improver for all agricultural soils. Corrects pH, activates microbiota, improves moisture retention.',
     imageAlt: 'Agrosapro Biome',
     name: 'Agrosapro Biome',
   },
   {
     to: '/products/soil-conditioners/phoenix',
-    description: 'Advanced pH correction with sulfur-containing formula. For saline, exhausted and disturbed soils.',
     imageAlt: 'Agrosapro pHoenix',
     name: 'Agrosapro pHoenix',
   },
@@ -23,6 +20,7 @@ const previewCards = [
 function SoilConditioners() {
   const cardsSectionRef = useRef(null);
   const [cardsVisible, setCardsVisible] = useState(false);
+  const [textExpanded, setTextExpanded] = useState(false);
 
   useEffect(() => {
     const target = cardsSectionRef.current;
@@ -57,27 +55,32 @@ function SoilConditioners() {
         <div className="soil-intro__inner">
           <div className="soil-intro__copy">
             <h2>The science behind our soil conditioners</h2>
-            <p>
-              Sapropel is low-lying lake and swamp silt formed in freshwater bodies. It is extremely rich in organic matter
-              of animal and vegetable origin. From year to year, low-lying layers are replenished with new ones — unlike coal
-              or oil, sapropel is a renewable resource. We work with this precious raw material as carefully and waste-free
-              as possible.
-            </p>
-            <p>
-              For the production of soil improvers we use a peat-sapropel mixture from lowland peat and properly extracted
-              sapropel.
-            </p>
-            <p>
-              Sapropel has an exceptional ability to <strong>neutralize</strong> natural acidity or acidity acquired due to
-              the irrational use of mineral fertilizers, while lowland peat <strong>corrects soil friability</strong> and{' '}
-              <strong>serves as a buffer for microelements</strong>.
-            </p>
-            <p>
-              Our advantage lies in the use of high-tech production methods, which guarantees a{' '}
-              <strong>consistently reproducible functional composition</strong> of our soil improvers and the optimal content
-              of humic and fulvic acids, the necessary low molecular weight amino acid complexes (lysine, leucine, proline,
-              arginine, cysteine), microelements and bioactive compounds.
-            </p>
+            <div className={`intro-text-body ${textExpanded ? 'expanded' : 'collapsed'}`}>
+              <p>
+                Sapropel is low-lying lake and swamp silt formed in freshwater bodies. It is extremely rich in organic
+                matter of animal and vegetable origin. From year to year, low-lying layers are replenished with new ones —
+                unlike coal or oil, sapropel is a renewable resource. We work with this precious raw material as carefully
+                and waste-free as possible.
+              </p>
+              <p>
+                For the production of soil improvers we use a peat-sapropel mixture from lowland peat and properly extracted
+                sapropel.
+              </p>
+              <p>
+                Sapropel has an exceptional ability to <strong>neutralize</strong> natural acidity or acidity acquired due
+                to the irrational use of mineral fertilizers, while lowland peat <strong>corrects soil friability</strong>{' '}
+                and <strong>serves as a buffer for microelements</strong>.
+              </p>
+              <p>
+                Our advantage lies in the use of high-tech production methods, which guarantees a{' '}
+                <strong>consistently reproducible functional composition</strong> of our soil improvers and the optimal
+                content of humic and fulvic acids, the necessary low molecular weight amino acid complexes (lysine, leucine,
+                proline, arginine, cysteine), microelements and bioactive compounds.
+              </p>
+            </div>
+            <button className="read-more-toggle" type="button" onClick={() => setTextExpanded((value) => !value)}>
+              {textExpanded ? 'Show less ↑' : 'Read more ↓'}
+            </button>
           </div>
 
           <div className="image-stack" aria-label="Soil conditioner imagery">
@@ -104,10 +107,8 @@ function SoilConditioners() {
                 key={product.name}
                 to={product.to}
               >
-                <div className="product-preview-card__content">
-                  <p className="product-preview-card__description">{product.description}</p>
+                <div className="card-text-content">
                   <h3>{product.name}</h3>
-                  <span>View details →</span>
                 </div>
                 <img
                   className={`card-image card-image-base ${cardsVisible ? `card-image-animated ${index === 0 ? 'card-1' : 'card-2'}` : ''}`}

@@ -75,7 +75,7 @@
 }
 
 .navbar__nav a,
-.navbar__dropdown-toggle {
+.dropdown-trigger {
   border-radius: 8px;
   border: 0;
   background: transparent;
@@ -88,27 +88,51 @@
 }
 
 .navbar__nav a:hover,
-.navbar__dropdown-toggle:hover,
+.dropdown-trigger:hover,
 .navbar__nav a.active {
   color: var(--color-primary);
   background: rgba(45, 90, 27, 0.07);
 }
 
-.navbar__dropdown {
+.nav-item-dropdown {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  position: relative;
+  gap: 0;
 }
 
-.navbar__dropdown-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding-left: 10px;
+.dropdown-menu {
+  display: block;
+  max-height: 0;
+  margin-left: 10px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  pointer-events: none;
 }
 
-.navbar__dropdown-menu a {
+.nav-item-dropdown.is-open .dropdown-menu {
+  max-height: 520px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: #1a1a0f;
+  font-size: 15px;
   font-weight: 600;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  color: #2d5a1b;
+  background: #f5efe0;
 }
 
 .navbar__cta {
@@ -159,35 +183,40 @@
   }
 
   .navbar__nav a,
-  .navbar__dropdown-toggle {
+  .dropdown-trigger {
     padding: 10px 12px;
   }
 
-  .navbar__dropdown {
+  .nav-item-dropdown {
     position: relative;
     gap: 0;
   }
 
-  .navbar__dropdown-menu {
+  .dropdown-menu {
     position: absolute;
-    top: calc(100% + 10px);
+    top: 100%;
     left: 0;
     min-width: 220px;
-    display: none;
-    padding: 10px;
-    border: 1px solid var(--color-border);
+    max-height: none;
+    margin-left: 0;
+    overflow: visible;
+    padding: 8px 0;
+    border: 0;
     border-radius: 10px;
-    background: var(--color-card);
-    box-shadow: var(--shadow-soft);
+    background: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   }
 
-  .navbar__dropdown:hover .navbar__dropdown-menu,
-  .navbar__dropdown:focus-within .navbar__dropdown-menu {
-    display: flex;
+  .nav-item-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
   }
 
-  .navbar__dropdown-menu a {
-    padding: 10px 12px;
+  .nav-item-dropdown.is-open .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
   }
 
   .navbar__cta--desktop {

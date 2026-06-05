@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 
@@ -17,7 +17,9 @@ const productLinks = [
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navbarRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 60);
@@ -31,10 +33,24 @@ function Navbar() {
     return () => document.body.classList.remove('menu-open');
   }, [isOpen]);
 
-  const closeMenu = () => setIsOpen(false);
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setIsProductsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    setIsProductsOpen(false);
+  };
 
   return (
-    <header className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
+    <header className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`} ref={navbarRef}>
       <div className="navbar__inner container">
         <Link className="navbar__brand" to="/" onClick={closeMenu}>
           <img src="/logo.png" alt="Agrosapro" />
@@ -54,11 +70,19 @@ function Navbar() {
         </button>
 
         <nav className={`navbar__nav ${isOpen ? 'navbar__nav--open' : ''}`} aria-label="Primary navigation">
-          <div className="navbar__dropdown">
-            <button className="navbar__dropdown-toggle" type="button">
+          <div
+            className={`nav-item-dropdown ${isProductsOpen ? 'is-open' : ''}`}
+            onMouseLeave={() => setIsProductsOpen(false)}
+          >
+            <button
+              className="dropdown-trigger"
+              type="button"
+              aria-expanded={isProductsOpen}
+              onClick={() => setIsProductsOpen((value) => !value)}
+            >
               Products
             </button>
-            <div className="navbar__dropdown-menu">
+            <div className="dropdown-menu">
               {productLinks.map((link) => (
                 <NavLink key={link.label} to={link.to} onClick={closeMenu}>
                   {link.label}

@@ -8,6 +8,8 @@ import FeedAdditivesPage from './pages/FeedAdditives/FeedAdditives.jsx';
 import GrowthRegulatorsPage from './pages/GrowthRegulators/GrowthRegulators.jsx';
 import HomePage from './pages/Home/Home.jsx';
 import SolutionsPage from './pages/Solutions/Solutions.jsx';
+import SoilConditionerBiome from './pages/SoilConditionerBiome/SoilConditionerBiome.jsx';
+import SoilConditionerPhoenix from './pages/SoilConditionerPhoenix/SoilConditionerPhoenix.jsx';
 import SoilConditionersPage from './pages/SoilConditioners/SoilConditioners.jsx';
 import TechnologyPage from './pages/Technology/Technology.jsx';
 
@@ -18,6 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products/soil-conditioners" element={<SoilConditionersPage />} />
+        <Route path="/products/soil-conditioners/biome" element={<SoilConditionerBiome />} />
+        <Route path="/products/soil-conditioners/phoenix" element={<SoilConditionerPhoenix />} />
         <Route path="/products/growth-regulators" element={<GrowthRegulatorsPage />} />
         <Route path="/products/feed-additives" element={<FeedAdditivesPage />} />
         <Route path="/technology" element={<TechnologyPage />} />

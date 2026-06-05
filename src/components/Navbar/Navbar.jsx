@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 const navLinks = [
-  { label: 'Products', href: '#products' },
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'Technology', href: '#technology' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Technology', to: '/technology' },
+  { label: 'Solutions', to: '/solutions' },
+  { label: 'About', to: '/about' },
+  { label: 'Contact', to: '/contact' },
+];
+
+const productLinks = [
+  { label: 'Soil Conditioners', to: '/products/soil-conditioners' },
+  { label: 'Growth Regulators', to: '/products/growth-regulators' },
+  { label: 'Feed Additives', to: '/products/feed-additives' },
 ];
 
 function Navbar() {
@@ -30,10 +36,10 @@ function Navbar() {
   return (
     <header className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
-        <a className="navbar__brand" href="#top" onClick={closeMenu}>
+        <Link className="navbar__brand" to="/" onClick={closeMenu}>
           <img src="/logo.png" alt="Agrosapro" />
           <span>Agrosapro</span>
-        </a>
+        </Link>
 
         <button
           className="navbar__toggle"
@@ -48,19 +54,31 @@ function Navbar() {
         </button>
 
         <nav className={`navbar__nav ${isOpen ? 'navbar__nav--open' : ''}`} aria-label="Primary navigation">
+          <div className="navbar__dropdown">
+            <button className="navbar__dropdown-toggle" type="button">
+              Products
+            </button>
+            <div className="navbar__dropdown-menu">
+              {productLinks.map((link) => (
+                <NavLink key={link.label} to={link.to} onClick={closeMenu}>
+                  {link.label}
+                </NavLink>
+              ))}
+            </div>
+          </div>
           {navLinks.map((link) => (
-            <a key={link.label} href={link.href} onClick={closeMenu}>
+            <NavLink key={link.label} to={link.to} onClick={closeMenu}>
               {link.label}
-            </a>
+            </NavLink>
           ))}
-          <a className="navbar__cta navbar__cta--mobile" href="#contact" onClick={closeMenu}>
+          <Link className="navbar__cta navbar__cta--mobile" to="/contact" onClick={closeMenu}>
             Request a quote
-          </a>
+          </Link>
         </nav>
 
-        <a className="navbar__cta navbar__cta--desktop" href="#contact">
+        <Link className="navbar__cta navbar__cta--desktop" to="/contact" onClick={closeMenu}>
           Request a quote
-        </a>
+        </Link>
       </div>
     </header>
   );

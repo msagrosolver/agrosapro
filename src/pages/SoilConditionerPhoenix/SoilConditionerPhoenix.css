@@ -1,8 +1,4 @@
 .back-button {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  z-index: 10;
   display: flex;
   width: 44px;
   height: 44px;
@@ -22,20 +18,24 @@
   transform: translateX(-2px);
 }
 
+.back-button-container {
+  width: min(100%, 1140px);
+  margin: 0 auto;
+  padding: 20px 24px 0;
+}
+
 .soil-detail {
   padding: 80px 24px;
   background: #fff;
 }
 
+.product-detail-content {
+  padding-top: 0;
+}
+
 .soil-detail__inner {
   width: min(100%, 1140px);
   margin: 0 auto;
-}
-
-.soil-detail__image {
-  width: min(100%, 280px);
-  max-width: 280px;
-  margin: 0 auto 48px;
 }
 
 .detail-tabs {
@@ -103,6 +103,228 @@
 
 .detail-table--wide {
   min-width: 900px;
+}
+
+.tab-content table {
+  width: 100%;
+  font-size: 13px;
+}
+
+.tab-content th {
+  padding: 10px 16px;
+  font-size: 13px;
+}
+
+.tab-content td {
+  padding: 9px 16px;
+  font-size: 13px;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.tab-content p {
+  text-align: justify;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.tab-content li {
+  padding: 10px 0;
+  font-size: 14px;
+  line-height: 1.65;
+  text-align: justify;
+}
+
+.tab-section {
+  padding-top: 24px;
+}
+
+.composition-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.composition-table th {
+  padding: 10px 16px;
+  color: white;
+  background: #2d5a1b;
+  font-size: 13px;
+  text-align: left;
+}
+
+.composition-table th:last-child {
+  text-align: right;
+}
+
+.composition-table td {
+  padding: 9px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.composition-table td:first-child {
+  width: 75%;
+  color: #1a1a0f;
+}
+
+.composition-table td:last-child {
+  width: 25%;
+  color: #2d5a1b;
+  font-weight: 600;
+  text-align: right;
+}
+
+.composition-table tr:nth-child(even) td {
+  background: #f9f7f4;
+}
+
+/* Override the general scrollable table rule specifically for composition */
+.tab-content .composition-table {
+  display: table !important;
+  overflow-x: visible !important;
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+}
+
+.tab-content .composition-table thead,
+.tab-content .composition-table tbody,
+.tab-content .composition-table tr {
+  display: table-row-group !important;
+}
+
+.tab-content .composition-table thead {
+  display: table-header-group !important;
+}
+
+.tab-content .composition-table tr {
+  display: table-row !important;
+}
+
+.tab-content .composition-table th,
+.tab-content .composition-table td {
+  display: table-cell !important;
+  overflow-x: visible !important;
+  min-width: unset !important;
+  white-space: normal !important;
+}
+
+.tab-content .composition-table td:first-child {
+  width: 75%;
+  color: #1a1a0f;
+  font-size: 13px;
+  padding: 9px 16px;
+}
+
+.tab-content .composition-table td:last-child {
+  width: 25%;
+  text-align: right;
+  font-weight: 600;
+  color: #2d5a1b;
+  font-size: 13px;
+  padding: 9px 16px;
+}
+
+.application-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.application-card {
+  border: 1px solid rgba(45, 90, 27, 0.15);
+  border-radius: 14px;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.application-card--combined {
+  border-color: rgba(45, 90, 27, 0.3);
+  background: #f6fbf2;
+}
+
+.app-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 20px;
+  color: white;
+  background: #2d5a1b;
+}
+
+.app-product-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.app-dose {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.app-dose small {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.app-card-body {
+  padding: 4px 0;
+}
+
+.app-method-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.app-method-item:last-child {
+  border-bottom: none;
+}
+
+.app-method-label {
+  min-width: 72px;
+  padding-top: 1px;
+  flex-shrink: 0;
+  color: #2d5a1b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.app-method-text {
+  color: #1a1a0f;
+  text-align: left;
+}
+
+.application-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #6b6b52;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.application-divider::before,
+.application-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(45, 90, 27, 0.15);
 }
 
 .detail-copy {
@@ -183,5 +405,64 @@
 
   .detail-packaging {
     padding: 22px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .composition-table td,
+  .composition-table th {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .tab-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 12px;
+  }
+
+  .tab-content th,
+  .tab-content td {
+    min-width: 80px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .product-detail-content {
+    padding: 0 0 48px;
+  }
+
+  .tab-section {
+    padding: 16px 16px 48px;
+  }
+
+  .composition-table {
+    display: table !important;
+    overflow-x: visible !important;
+    min-width: 0 !important;
+    max-width: 100%;
+    table-layout: fixed;
+  }
+
+  .composition-table th,
+  .composition-table td {
+    min-width: unset;
+    overflow-wrap: break-word;
+  }
+
+  .tab-content .composition-table th:first-child,
+  .tab-content .composition-table td:first-child {
+    width: 70%;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .tab-content .composition-table th:last-child,
+  .tab-content .composition-table td:last-child {
+    width: 30%;
+    font-size: 12px;
+    padding: 8px 10px;
+    text-align: right;
   }
 }

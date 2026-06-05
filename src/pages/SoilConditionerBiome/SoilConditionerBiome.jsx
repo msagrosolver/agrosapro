@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageHero from '../../components/PageHero/PageHero.jsx';
-import plantyImage from '../../assets/images/planty.jpg';
 import './SoilConditionerBiome.css';
 
 const tabs = ['Composition', 'Description', 'Benefits', 'Application'];
@@ -21,13 +20,10 @@ const compositionRows = [
   ['pH', '5.1 – 5.8'],
 ];
 
-const applicationMethod =
-  'Incorporation to a depth of 12–16 cm and abundant watering. With zero soil treatment (No-Till system), application on top of the soils together with mulch, without mixing and abundant watering.';
-
 function CompositionTab() {
   return (
     <div className="detail-table-scroll">
-      <table className="detail-table">
+      <table className="detail-table composition-table">
         <thead>
           <tr>
             <th>Parameter</th>
@@ -103,53 +99,57 @@ function BenefitsTab() {
 
 function ApplicationTab() {
   return (
-    <div className="detail-application">
-      <div className="detail-table-scroll">
-        <table className="detail-table">
-          <thead>
-            <tr>
-              <th>Product Name</th>
-              <th>Application rate of soil improver</th>
-              <th>Method of application</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Agrosapro Biome</td>
-              <td>5–20 t/ha (0.5–2 kg/1 m²)</td>
-              <td>{applicationMethod}</td>
-            </tr>
-          </tbody>
-        </table>
+    <div className="application-section">
+      <div className="application-card">
+        <div className="app-card-header">
+          <span className="app-product-name">Agrosapro Biome</span>
+          <span className="app-dose">
+            5–20 t/ha <small>(0.5–2 kg/1 m²)</small>
+          </span>
+        </div>
+        <div className="app-card-body">
+          <div className="app-method-item">
+            <span className="app-method-label">Standard</span>
+            <span className="app-method-text">Incorporation to a depth of 12–16 cm and abundant watering.</span>
+          </div>
+          <div className="app-method-item">
+            <span className="app-method-label">No-Till</span>
+            <span className="app-method-text">
+              Application on top of the soil together with mulch, without mixing and abundant watering.
+            </span>
+          </div>
+        </div>
       </div>
 
-      <p className="detail-application__label">Application together with the basic liquid solution Agrosapro K</p>
-
-      <div className="detail-table-scroll">
-        <table className="detail-table detail-table--wide">
-          <thead>
-            <tr>
-              <th>Product Name</th>
-              <th>Application rate of soil improver</th>
-              <th>Application rate of Agrosapro K into irrigation water</th>
-              <th>Method of application</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Agrosapro Biome + Agrosapro K</td>
-              <td>5–20 t/ha (0.5–2 kg/1 m²)</td>
-              <td>6 l/ha (0.6 ml/1 m²)</td>
-              <td>{applicationMethod}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="application-divider">
+        <span>Combined application with Agrosapro K</span>
       </div>
 
-      <aside className="detail-packaging">
-        <h4>Packaging &amp; Shelf Life</h4>
-        <p>Solid form: Big bags 700–800 kg · Bags 50 kg · Bags 25 kg · Shelf life: 5 years without special storage conditions</p>
-      </aside>
+      <div className="application-card application-card--combined">
+        <div className="app-card-header">
+          <span className="app-product-name">Agrosapro Biome + Agrosapro K</span>
+        </div>
+        <div className="app-card-body">
+          <div className="app-method-item">
+            <span className="app-method-label">Soil dose</span>
+            <span className="app-method-text">5–20 t/ha (0.5–2 kg/1 m²)</span>
+          </div>
+          <div className="app-method-item">
+            <span className="app-method-label">K solution</span>
+            <span className="app-method-text">6 l/ha (0.6 ml/1 m²) into irrigation water</span>
+          </div>
+          <div className="app-method-item">
+            <span className="app-method-label">Standard</span>
+            <span className="app-method-text">Incorporation to a depth of 12–16 cm and abundant watering.</span>
+          </div>
+          <div className="app-method-item">
+            <span className="app-method-label">No-Till</span>
+            <span className="app-method-text">
+              Application on top of the soil together with mulch, without mixing and abundant watering.
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -167,23 +167,21 @@ function SoilConditionerBiome() {
 
   return (
     <main>
-      <div style={{ position: 'relative' }}>
-        <PageHero
-          eyebrow="Soil Conditioner"
-          title="Agrosapro Biome"
-          subtitle="Base soil improver for all agricultural soils based on organic sapropel and lowland peat."
-        />
+      <PageHero
+        eyebrow="Soil Conditioner"
+        title="Agrosapro Biome"
+        subtitle="Base soil improver for all agricultural soils based on organic sapropel and lowland peat."
+      />
 
-        <button className="back-button" type="button" onClick={() => navigate(-1)} aria-label="Go back">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11 4L6 9L11 14" stroke="#2D5A1B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-      </div>
-
-      <section className="soil-detail">
+      <section className="soil-detail product-detail-content">
         <div className="soil-detail__inner">
-          <img className="soil-detail__image" src={plantyImage} alt="Agrosapro Biome" />
+          <div className="back-button-container">
+            <button className="back-button" type="button" onClick={() => navigate(-1)} aria-label="Go back">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 4L6 9L11 14" stroke="#2D5A1B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
 
           <div className="detail-tabs" role="tablist" aria-label="Agrosapro Biome details">
             {tabs.map((tab) => (
@@ -200,7 +198,7 @@ function SoilConditionerBiome() {
             ))}
           </div>
 
-          <div role="tabpanel">
+          <div className="tab-content tab-section" role="tabpanel">
             <TabContent activeTab={activeTab} />
           </div>
         </div>

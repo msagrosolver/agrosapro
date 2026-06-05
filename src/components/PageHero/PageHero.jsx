@@ -4,8 +4,9 @@ import './PageHero.css';
 function PageHero({ eyebrow, title, subtitle, breadcrumbs }) {
   return (
     <section className="page-hero">
-      <div className="page-hero__overlay" />
-      <div className="page-hero__content container">
+      <div className="page-hero-bg" />
+      <div className="page-hero-overlay" />
+      <div className="page-hero-content">
         {breadcrumbs && (
           <nav className="page-hero-breadcrumbs">
             {breadcrumbs.map((crumb, index) => (
@@ -24,9 +25,7 @@ function PageHero({ eyebrow, title, subtitle, breadcrumbs }) {
             ))}
           </nav>
         )}
-        <p className="page-hero__eyebrow">{eyebrow}</p>
-        <h1 className="page-hero__title">{title}</h1>
-        <p className="page-hero__subtitle">{subtitle}</p>
+        <h1>{title}</h1>
       </div>
     </section>
   );

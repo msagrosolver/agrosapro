@@ -1,0 +1,122 @@
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 82svh;
+  align-items: center;
+  overflow: hidden;
+  padding: 116px 0 58px;
+  color: #fff;
+  isolation: isolate;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero__overlay {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: rgba(18, 43, 14, 0.46);
+  box-shadow: inset 56vw 0 150px rgba(18, 43, 14, 0.4);
+}
+
+.hero__copy {
+  max-width: 700px;
+}
+
+.hero__eyebrow {
+  color: #f0c955;
+}
+
+.hero h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(2.35rem, 7vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.hero__subheadline {
+  max-width: 610px;
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.75;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.hero__brochure {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.46);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hero__brochure:hover {
+  color: var(--color-bg-dark);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.hero__badges {
+  display: grid;
+  max-width: 690px;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero__badges li {
+  position: relative;
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  padding: 9px 12px 9px 38px;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.11);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.hero__badges li::before {
+  position: absolute;
+  left: 14px;
+  width: 8px;
+  height: 14px;
+  border-right: 2px solid #f0c955;
+  border-bottom: 2px solid #f0c955;
+  content: '';
+  transform: rotate(42deg) translateY(-1px);
+}
+
+@media (min-width: 700px) {
+  .hero__badges {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    min-height: 760px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    min-height: auto;
+    padding: 98px 0 44px;
+    background-position: 62% center;
+  }
+
+  .hero__actions {
+    gap: 10px;
+  }
+}

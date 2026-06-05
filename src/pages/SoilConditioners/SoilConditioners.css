@@ -137,7 +137,7 @@
 }
 
 .product-preview-card:hover {
-  background: #f6fbf2;
+  background: white;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.13);
   transform: translateY(-6px);
   transition:

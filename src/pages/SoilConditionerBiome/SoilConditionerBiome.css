@@ -40,33 +40,48 @@
 
 .detail-tabs {
   display: flex;
-  border-bottom: 2px solid #e8e8e8;
-  margin-bottom: 40px;
+  gap: 6px;
+  border: 1.5px solid rgba(45, 90, 27, 0.15);
+  border-radius: 999px;
+  margin-bottom: 32px;
+  padding: 5px;
+  background: white;
   overflow-x: auto;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .detail-tabs__button {
   flex: 0 0 auto;
-  border: 0;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  padding: 14px 28px;
+  border: none;
+  margin-bottom: 0;
+  padding: 9px 24px;
   color: #6b6b52;
   background: transparent;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  line-height: 1.2;
+  border-radius: 999px;
   cursor: pointer;
-  transition: color 180ms ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+  white-space: nowrap;
 }
 
-.detail-tabs__button:hover,
-.detail-tabs__button--active {
+.detail-tabs__button:hover {
+  background: #eaf3de;
   color: #2d5a1b;
 }
 
 .detail-tabs__button--active {
-  border-bottom-color: #2d5a1b;
+  background: #2d5a1b;
+  color: white;
+}
+
+.detail-tabs__button--active:hover {
+  background: #3a6e24;
+  color: white;
 }
 
 .detail-table-scroll {

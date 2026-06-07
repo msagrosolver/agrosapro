@@ -46,7 +46,7 @@
   border: 1px solid rgba(255, 255, 255, 0.42);
   border-radius: 8px;
   color: #fff;
-  background: rgba(30, 58, 15, 0.74);
+  background: rgba(var(--color-bg-dark-rgb), 0.74);
   font-size: 0.82rem;
   font-weight: 800;
 }

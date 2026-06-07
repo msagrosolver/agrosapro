@@ -81,7 +81,7 @@
   border-radius: 8px;
   padding: 5px 9px;
   color: var(--color-primary);
-  background: rgba(45, 90, 27, 0.08);
+  background: rgba(var(--color-primary-rgb), 0.08);
   font-size: 0.78rem;
   font-weight: 800;
   line-height: 1.2;

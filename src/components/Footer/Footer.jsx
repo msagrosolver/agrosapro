@@ -13,7 +13,7 @@ function Footer() {
       <div className="footer__main container">
         <div className="footer__brand">
           <a className="footer__logo" href="#top">
-            <img src="/logo.png" alt="Agrosapro" />
+            <img src="/Logo halftone-white.svg" alt="Agrosapro" />
             <span>Agrosapro</span>
           </a>
           <p className="footer__tagline">European sapropel solutions</p>

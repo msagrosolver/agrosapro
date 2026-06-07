@@ -53,7 +53,7 @@ function Navbar() {
     <header className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`} ref={navbarRef}>
       <div className="navbar__inner container">
         <Link className="navbar__brand" to="/" onClick={closeMenu}>
-          <img src="/logo.png" alt="Agrosapro" />
+          <img src="/Logo halftone.svg" alt="Agrosapro" />
           <span>Agrosapro</span>
         </Link>
 

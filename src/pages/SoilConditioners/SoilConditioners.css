@@ -1,5 +1,5 @@
 .soil-intro {
-  background: #fdfaf4;
+  background: var(--color-bg);
 }
 
 .soil-intro__inner,
@@ -19,7 +19,7 @@
 .soil-intro__copy h2,
 .product-range__header h2 {
   margin: 0;
-  color: #2d5a1b;
+  color: var(--color-primary);
   font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 600;
   line-height: 1.1;
@@ -28,13 +28,13 @@
 
 .soil-intro__copy p {
   margin: 22px 0 0;
-  color: #434333;
+  color: var(--color-text-muted);
   font-size: 1rem;
   line-height: 1.8;
 }
 
 .soil-intro strong {
-  color: #1a1a0f;
+  color: var(--color-text);
   font-weight: 700;
 }
 
@@ -50,8 +50,8 @@
   aspect-ratio: 4 / 3;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(45, 90, 27, 0.12);
-  color: rgba(45, 90, 27, 0.72);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+  color: rgba(var(--color-primary-rgb), 0.72);
   font-size: 0.88rem;
   font-weight: 700;
   line-height: 1.35;
@@ -62,7 +62,7 @@
   width: 65%;
   overflow: hidden;
   border-radius: 16px;
-  background: #eaf3de;
+  background: var(--color-primary-soft);
 }
 
 .img-front {
@@ -72,7 +72,7 @@
   width: 55%;
   overflow: hidden;
   border-radius: 16px;
-  background: #d4e8c2;
+  background: var(--color-primary-wash);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
 }
 
@@ -82,7 +82,7 @@
   left: 0;
   width: 160px;
   height: 160px;
-  background-image: radial-gradient(circle, rgba(45, 90, 27, 0.2) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, rgba(var(--color-primary-rgb), 0.2) 1.5px, transparent 1.5px);
   background-size: 12px 12px;
   z-index: -1;
   pointer-events: none;
@@ -105,7 +105,7 @@
 
 .product-range__header p {
   margin: 16px 0 0;
-  color: #6b6b52;
+  color: var(--color-text-muted);
   font-size: 1.05rem;
 }
 
@@ -164,7 +164,7 @@
 
 .product-preview-card h3 {
   margin: 0;
-  color: #2d5a1b;
+  color: var(--color-primary);
   font-size: 20px;
   font-weight: 700;
   line-height: 1.2;
@@ -299,7 +299,7 @@
     left: 0;
     right: 0;
     height: 60px;
-    background: linear-gradient(to bottom, transparent, #fdfaf4);
+    background: linear-gradient(to bottom, transparent, var(--color-bg));
     pointer-events: none;
   }
 
@@ -313,18 +313,18 @@
     gap: 6px;
     margin-top: 12px;
     background: transparent;
-    border: 1.5px solid rgba(45, 90, 27, 0.3);
+    border: 1.5px solid rgba(var(--color-primary-rgb), 0.3);
     border-radius: 999px;
     padding: 8px 18px;
     font-size: 13px;
     font-weight: 600;
-    color: #2d5a1b;
+    color: var(--color-primary);
     cursor: pointer;
   }
 
   .read-more-toggle:hover {
-    background: #eaf3de;
-    border-color: #2d5a1b;
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
   }
 
   .product-cards-grid,

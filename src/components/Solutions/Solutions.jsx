@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import revegetationImage from '../../assets/solution-revegetation.jpg';
 import hydroponicsImage from '../../assets/solution-hydroponics.jpg';
 import urbanGreenImage from '../../assets/solution-urban-green.jpg';
@@ -5,6 +7,15 @@ import livestockImage from '../../assets/product-feed-additive.jpg';
 import preSowingImage from '../../assets/product-growth-regulator.jpg';
 import waterImage from '../../assets/solution-water-remediation.jpg';
 import './Solutions.css';
+
+const solutionLinks = {
+  Revegetation: '/solutions',
+  Hydroponics: '/solutions',
+  'Professional lawns & urban green': '/solutions',
+  'Animal husbandry': '/solutions',
+  'Pre-sowing preparation': '/solutions',
+  'Water body remediation': '/solutions',
+};
 
 const solutions = [
   {
@@ -41,6 +52,8 @@ const solutions = [
 ];
 
 function Solutions() {
+  const [hoveredCard, setHoveredCard] = useState(null);
+
   return (
     <section id="solutions" className="solutions section">
       <div className="container">
@@ -55,17 +68,54 @@ function Solutions() {
 
         <div className="solutions__grid">
           {solutions.map((solution, index) => (
-            <article className="solution-card" key={solution.title}>
-              <div className="solution-card__media">
-                <img src={solution.image} alt="" />
-                <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              </div>
-              <div className="solution-card__body">
-                <h3>{solution.title}</h3>
-                <p>{solution.description}</p>
-              </div>
-            </article>
+            <Link
+              to={solutionLinks[solution.title] || '/solutions'}
+              className="solution-card-link"
+              key={solution.title}
+              style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+              onMouseEnter={() => setHoveredCard(solution.title)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <article
+                className="solution-card"
+                style={{
+                  transform: hoveredCard === solution.title ? 'translateY(-4px)' : 'translateY(0)',
+                  boxShadow:
+                    hoveredCard === solution.title ? '0 8px 32px rgba(0,0,0,0.10)' : 'var(--shadow-card)',
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                }}
+              >
+                <div className="solution-card__media">
+                  <img src={solution.image} alt="" />
+                  <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                </div>
+                <div className="solution-card__body">
+                  <h3>{solution.title}</h3>
+                  <p>{solution.description}</p>
+                </div>
+              </article>
+            </Link>
           ))}
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: '40px' }}>
+          <Link
+            to="/solutions"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              color: '#2D5A1B',
+              fontSize: '15px',
+              fontWeight: '600',
+              textDecoration: 'none',
+              padding: '10px 24px',
+              border: '1.5px solid rgba(45,90,27,0.3)',
+              borderRadius: '999px',
+            }}
+          >
+            See all solutions →
+          </Link>
         </div>
       </div>
     </section>

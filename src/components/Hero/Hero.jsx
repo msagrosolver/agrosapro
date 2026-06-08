@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import heroImage from '../../assets/hero-field.jpg';
 import './Hero.css';
 
@@ -17,12 +18,12 @@ function Hero() {
             Green Deal.
           </p>
           <div className="hero__actions" aria-label="Primary actions">
-            <a className="button button--primary" href="#products">
+            <Link className="button button--primary" to="/products/soil-conditioners">
               Explore our products
-            </a>
-            <a className="button button--outline hero__brochure" href="#">
-              Download product brochure
-            </a>
+            </Link>
+            <Link className="button button--outline" to="/technology">
+              Learn about the technology
+            </Link>
           </div>
           <ul className="hero__badges" aria-label="Agrosapro trust points">
             {trustBadges.map((badge) => (

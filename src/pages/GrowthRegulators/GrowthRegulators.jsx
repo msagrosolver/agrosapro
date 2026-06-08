@@ -1,21 +1,125 @@
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import plantyImage from '../../assets/images/planty.jpg';
 import './GrowthRegulators.css';
 
+const previewCards = [
+  {
+    to: '/products/growth-regulators/k',
+    imageAlt: 'Agrosapro K',
+    name: 'Agrosapro K',
+  },
+  {
+    to: '/products/growth-regulators/complex',
+    imageAlt: 'Agrosapro Complex',
+    name: 'Agrosapro Complex',
+  },
+];
+
 function GrowthRegulators() {
+  const cardsSectionRef = useRef(null);
+  const [cardsVisible, setCardsVisible] = useState(false);
+  const [textExpanded, setTextExpanded] = useState(false);
+
+  useEffect(() => {
+    const target = cardsSectionRef.current;
+    if (!target) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry?.isIntersecting) {
+          setCardsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main>
       <PageHero
         eyebrow="Product line"
         title="Growth Regulators"
-        subtitle="Liquid humate concentrates that combine the power of organic sapropel with targeted mineral nutrition. For intensive and extensive farming, greenhouses and hydroponics."
+        subtitle="Liquid humate concentrates that combine the power of organic sapropel with targeted mineral nutrition."
+        breadcrumbs={[
+          { label: 'Products', to: '/' },
+          { label: 'Growth Regulators', to: '/products/growth-regulators' },
+        ]}
       />
-      <section className="page-placeholder">
-        <div className="page-placeholder__inner container">
-          <h2>Liquid formulations for crop performance</h2>
-          <p>
-            This placeholder section reserves space for formulation details, crop-specific recommendations, and performance
-            data for the Agrosapro growth regulator portfolio.
-          </p>
+
+      <section className="growth-intro">
+        <div className="growth-intro__inner">
+          <div className="growth-intro__copy">
+            <h2>Precise action, reproducible results</h2>
+            <div className={`intro-text-body ${textExpanded ? 'expanded' : 'collapsed'}`}>
+              <p>
+                The advantage of our line of liquid formulations is that we study the fractional composition of the
+                extracted peat-sapropel mixture and bring the optimal complex of humic and fulvic acids into the finished
+                product, and supplement it, depending on the task, with essential amino acids, phytohormones, meso and
+                microelements.
+              </p>
+              <p>
+                High-molecular complexes of humic substances bind ecotoxins and do not allow harmful substances into the
+                root system of plants, and low-molecular complexes contribute to the absorption of missing nutrients by cell
+                membranes. We combine the functional acid groups of the peat-sapropel mixture with micro and macro elements
+                to correct vitamin deficiencies or to stimulate the growth of certain organs and parts of a particular crop.
+              </p>
+              <p>
+                Our solutions have a precise effect: they <strong>heal the root system</strong>, improve the assimilation of
+                moisture and nutrients, and affect the development of the fruit and weight gain,{' '}
+                <strong>correct excess salts in soils</strong> or lack of certain elements.
+              </p>
+            </div>
+            <button className="read-more-toggle" type="button" onClick={() => setTextExpanded((value) => !value)}>
+              {textExpanded ? 'Show less ↑' : 'Read more ↓'}
+            </button>
+          </div>
+
+          <div className="image-stack" aria-label="Growth regulator imagery">
+            <div className="dot-grid" aria-hidden="true" />
+            <div className="image-stack__placeholder img-back">Photo: liquid growth regulator application</div>
+            <div className="image-stack__placeholder img-front">Photo: intensive crop rows greenhouse</div>
+          </div>
+        </div>
+      </section>
+
+      <section className="product-range">
+        <div className="product-range__inner">
+          <div className="product-range__header">
+            <h2>Our Growth Regulator Range</h2>
+            <p>Two liquid concentrate formulas - targeted potassium-humate correction and full-spectrum NPK feeding.</p>
+          </div>
+
+          <div className="product-preview-grid" ref={cardsSectionRef}>
+            {previewCards.map((product, index) => (
+              <Link
+                className={`product-preview-card product-card-base ${
+                  cardsVisible ? `product-card-animated ${index === 0 ? 'card-1' : 'card-2'}` : ''
+                }`}
+                key={product.name}
+                to={product.to}
+              >
+                <div className="card-text-content">
+                  <h3>{product.name}</h3>
+                </div>
+                <img
+                  className={`card-image card-image-base ${
+                    cardsVisible ? `card-image-animated ${index === 0 ? 'card-1' : 'card-2'}` : ''
+                  }`}
+                  src={plantyImage}
+                  alt={product.imageAlt}
+                />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </main>

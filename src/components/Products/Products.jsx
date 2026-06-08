@@ -1,8 +1,17 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import soilImage from '../../assets/product-soil-conditioner.jpg';
 import growthImage from '../../assets/product-growth-regulator.jpg';
 import feedImage from '../../assets/product-feed-additive.jpg';
 import './Products.css';
+
+const productLinks = {
+  'Agrosapro Biome': '/products/soil-conditioners/biome',
+  'Agrosapro pHoenix': '/products/soil-conditioners/phoenix',
+  'Agrosapro K': '/products/growth-regulators/k',
+  'Agrosapro Complex': '/products/growth-regulators/complex',
+  'Agrosapro BioNa': '/products/feed-additives/biona',
+};
 
 const tabs = [
   {
@@ -132,9 +141,9 @@ function ProductCard({ product, image, wide }) {
           </p>
         )}
 
-        <a className="product-card__link" href="#contact">
-          Discuss this product
-        </a>
+        <Link className="product-card__link" to={productLinks[product.name] || '#'}>
+          View product details →
+        </Link>
       </div>
     </article>
   );
@@ -192,6 +201,34 @@ function Products() {
                 wide={activeContent.id === 'feed'}
               />
             ))}
+          </div>
+
+          <div className="products__panel-footer" style={{ marginTop: '32px', textAlign: 'center' }}>
+            <Link
+              className="products__view-all"
+              to={
+                activeContent.id === 'soil'
+                  ? '/products/soil-conditioners'
+                  : activeContent.id === 'growth'
+                    ? '/products/growth-regulators'
+                    : '/products/feed-additives'
+              }
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                color: '#2D5A1B',
+                fontSize: '15px',
+                fontWeight: 600,
+                textDecoration: 'none',
+                padding: '10px 24px',
+                border: '1.5px solid rgba(45, 90, 27, 0.3)',
+                borderRadius: '999px',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              View full {activeContent.label} range →
+            </Link>
           </div>
         </div>
       </div>

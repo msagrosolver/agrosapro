@@ -49,6 +49,10 @@ function SoilConditioners() {
         eyebrow="Product line"
         title="Soil Conditioners"
         subtitle="Granulate preparations based on organic sapropel and lowland peat. Restore soil health, correct pH, and build lasting fertility."
+        breadcrumbs={[
+          { label: 'Products', to: '/' },
+          { label: 'Soil Conditioners', to: '/products/soil-conditioners' },
+        ]}
       />
 
       <section className="soil-intro">

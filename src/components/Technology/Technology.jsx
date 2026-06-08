@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import technologyImage from '../../assets/technology-sapropel.jpg';
 import './Technology.css';
 
@@ -63,6 +64,13 @@ function Technology() {
               The result is a stable, reproducible composition, not variable like classic organic fertilizers, delivering
               consistent agronomic performance across seasons and geographies.
             </p>
+            <Link
+              to="/technology"
+              className="button button--outline"
+              style={{ marginTop: '24px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+            >
+              Learn more about our technology →
+            </Link>
           </div>
 
           <aside className="technology__visual" aria-label="Sapropel composition">

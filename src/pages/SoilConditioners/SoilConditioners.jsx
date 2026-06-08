@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/PageHero/PageHero.jsx';
 import heroSoilImage from '../../assets/images/hero-soil-conditioners.jpg';
-import plantyImage from '../../assets/images/planty.jpg';
+import heroBiomeImage from '../../assets/images/hero-biome.jpg';
+import heroPhoenixImage from '../../assets/images/hero-phoenix.jpg';
 import soilIntroBackImage from '../../assets/images/soil-intro-back.jpg';
 import soilIntroFrontImage from '../../assets/images/soil-intro-front.jpg';
 import './SoilConditioners.css';
@@ -12,11 +13,13 @@ const previewCards = [
     to: '/products/soil-conditioners/biome',
     imageAlt: 'Agrosapro Biome',
     name: 'Agrosapro Biome',
+    image: heroBiomeImage,
   },
   {
     to: '/products/soil-conditioners/phoenix',
     imageAlt: 'Agrosapro pHoenix',
     name: 'Agrosapro pHoenix',
+    image: heroPhoenixImage,
   },
 ];
 
@@ -119,20 +122,20 @@ function SoilConditioners() {
           <div className="product-preview-grid" ref={cardsSectionRef}>
             {previewCards.map((product, index) => (
               <Link
-                className={`product-preview-card product-card-base ${
-                  cardsVisible ? `product-card-animated ${index === 0 ? 'card-1' : 'card-2'}` : ''
-                }`}
+                className={`product-preview-card ${cardsVisible ? 'product-card-visible' : 'product-card-hidden'}`}
+                style={{ transitionDelay: `${index * 0.15}s` }}
                 key={product.name}
                 to={product.to}
               >
-                <div className="card-text-content">
+                <img
+                  className="card-image"
+                  src={product.image}
+                  alt={product.imageAlt}
+                  loading="lazy"
+                />
+                <div className="card-overlay">
                   <h3>{product.name}</h3>
                 </div>
-                <img
-                  className={`card-image card-image-base ${cardsVisible ? `card-image-animated ${index === 0 ? 'card-1' : 'card-2'}` : ''}`}
-                  src={plantyImage}
-                  alt={product.imageAlt}
-                />
               </Link>
             ))}
           </div>

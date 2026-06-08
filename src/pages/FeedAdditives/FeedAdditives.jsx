@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/PageHero/PageHero.jsx';
 import heroFeedImage from '../../assets/images/hero-feed-additives.jpg';
+import heroBioNaImage from '../../assets/images/hero-biona.jpg';
 import feedIntroBackImage from '../../assets/images/feed-intro-back.jpg';
 import feedIntroFrontImage from '../../assets/images/feed-intro-front.jpg';
-import plantyImage from '../../assets/images/planty.jpg';
 import './FeedAdditives.css';
 
 const previewCards = [
@@ -12,6 +12,7 @@ const previewCards = [
     to: '/products/feed-additives/biona',
     imageAlt: 'Agrosapro BioNa',
     name: 'Agrosapro BioNa',
+    image: heroBioNaImage,
   },
 ];
 
@@ -102,30 +103,30 @@ function FeedAdditives() {
         </div>
       </section>
 
-      <section className="product-range">
+      <section className="product-range feed-product-range">
         <div className="product-range__inner">
           <div className="product-range__header">
             <h2>Our Feed Additive Range</h2>
             <p>One universal liquid formula - proven for all livestock, poultry and fur farm animals.</p>
           </div>
 
-          <div className="product-preview-grid product-preview-grid--single" ref={cardsSectionRef}>
-            {previewCards.map((product) => (
+          <div className="product-preview-grid" ref={cardsSectionRef}>
+            {previewCards.map((product, index) => (
               <Link
-                className={`product-preview-card product-preview-card--single product-card-base ${
-                  cardsVisible ? 'product-card-animated card-1' : ''
-                }`}
+                className={`product-preview-card ${cardsVisible ? 'product-card-visible' : 'product-card-hidden'}`}
+                style={{ transitionDelay: `${index * 0.15}s` }}
                 key={product.name}
                 to={product.to}
               >
-                <div className="card-text-content">
+                <img
+                  className="card-image"
+                  src={product.image}
+                  alt={product.imageAlt}
+                  loading="lazy"
+                />
+                <div className="card-overlay">
                   <h3>{product.name}</h3>
                 </div>
-                <img
-                  className={`card-image card-image-base ${cardsVisible ? 'card-image-animated card-1' : ''}`}
-                  src={plantyImage}
-                  alt={product.imageAlt}
-                />
               </Link>
             ))}
           </div>

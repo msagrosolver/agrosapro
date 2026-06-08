@@ -341,16 +341,16 @@
 /* Dropdown menu */
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: 0;
+  padding-top: 8px;
   background: #FFFFFF;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   border: 1px solid rgba(0, 0, 0, 0.08);
   min-width: 220px;
-  padding: 8px 0;
   opacity: 0;
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -381,6 +381,16 @@
 /* Nav item dropdown wrapper */
 .nav-item-dropdown {
   position: relative;
+}
+
+.nav-item-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: transparent;
 }
 
 .navbar__cta {
@@ -460,13 +470,13 @@
 
   .dropdown-menu {
     position: absolute;
-    top: calc(100% + 8px);
+    top: 100%;
     left: 0;
     min-width: 220px;
     max-height: none;
     margin-left: 0;
     overflow: visible;
-    padding: 8px 0;
+    padding-top: 8px;
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 12px;
     background: #FFFFFF;

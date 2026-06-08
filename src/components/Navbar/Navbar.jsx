@@ -72,6 +72,7 @@ function Navbar() {
         <nav className={`navbar__nav ${isOpen ? 'navbar__nav--open' : ''}`} aria-label="Primary navigation">
           <div
             className={`nav-item-dropdown ${isProductsOpen ? 'is-open' : ''}`}
+            onMouseEnter={() => setIsProductsOpen(true)}
             onMouseLeave={() => setIsProductsOpen(false)}
           >
             <button

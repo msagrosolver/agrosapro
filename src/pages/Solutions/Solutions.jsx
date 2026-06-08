@@ -30,7 +30,7 @@ function Solutions() {
         </div>
       </section>
 
-      <section className="solution-block solution-block--odd">
+      <section id="revegetation" className="solution-block solution-block--odd">
         <div className="solution-block__inner">
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Environmental rehabilitation</p>
@@ -62,7 +62,7 @@ function Solutions() {
         </div>
       </section>
 
-      <section className="solution-block solution-block--even">
+      <section id="pre-sowing" className="solution-block solution-block--even">
         <div className="solution-block__inner solution-block__inner--reverse">
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Crop production</p>
@@ -94,7 +94,7 @@ function Solutions() {
         </div>
       </section>
 
-      <section className="solution-block solution-block--odd">
+      <section id="professional-lawn" className="solution-block solution-block--odd">
         <div className="solution-block__inner">
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Urban green infrastructure</p>
@@ -129,7 +129,7 @@ function Solutions() {
         </div>
       </section>
 
-      <section className="solution-block solution-block--even">
+      <section id="water-bodies" className="solution-block solution-block--even">
         <div className="solution-block__inner solution-block__inner--reverse">
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Environmental remediation</p>
@@ -161,7 +161,7 @@ function Solutions() {
         </div>
       </section>
 
-      <section className="solution-block solution-block--odd">
+      <section id="animal-husbandry" className="solution-block solution-block--odd">
         <div className="solution-block__inner">
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Livestock &amp; poultry</p>
@@ -193,7 +193,7 @@ function Solutions() {
         </div>
       </section>
 
-      <section className="solution-block solution-block--even">
+      <section id="hydroponics" className="solution-block solution-block--even">
         <div className="solution-block__inner solution-block__inner--reverse">
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Controlled environment growing</p>

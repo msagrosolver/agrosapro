@@ -9,12 +9,12 @@ import waterImage from '../../assets/solution-water-remediation.jpg';
 import './Solutions.css';
 
 const solutionLinks = {
-  Revegetation: '/solutions',
-  Hydroponics: '/solutions',
-  'Professional lawns & urban green': '/solutions',
-  'Animal husbandry': '/solutions',
-  'Pre-sowing preparation': '/solutions',
-  'Water body remediation': '/solutions',
+  Revegetation: '/solutions#revegetation',
+  Hydroponics: '/solutions#hydroponics',
+  'Professional lawns & urban green': '/solutions#professional-lawn',
+  'Animal husbandry': '/solutions#animal-husbandry',
+  'Pre-sowing preparation': '/solutions#pre-sowing',
+  'Water body remediation': '/solutions#water-bodies',
 };
 
 const solutions = [
@@ -69,10 +69,10 @@ function Solutions() {
         <div className="solutions__grid">
           {solutions.map((solution, index) => (
             <Link
-              to={solutionLinks[solution.title] || '/solutions'}
+              to={solutionLinks[solution.title]}
               className="solution-card-link"
               key={solution.title}
-              style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+              style={{ textDecoration: 'none', color: 'inherit' }}
               onMouseEnter={() => setHoveredCard(solution.title)}
               onMouseLeave={() => setHoveredCard(null)}
             >

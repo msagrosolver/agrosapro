@@ -82,9 +82,21 @@
   pointer-events: none;
 }
 
+.section-divider {
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.section-divider svg {
+  display: block;
+  width: 100%;
+  height: 32px;
+}
+
 .product-range {
-  padding: 96px 24px;
-  background: #ffffff;
+  padding: 60px 24px 96px;
+  background: var(--color-bg);
 }
 
 .product-range__inner {

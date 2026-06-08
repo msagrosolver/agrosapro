@@ -108,6 +108,12 @@ function GrowthRegulators() {
         </div>
       </section>
 
+      <div className="section-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 32" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0 0 Q720 32 1440 0 L1440 2 Q720 34 0 2 Z" fill="rgba(0,0,0,0.08)" />
+        </svg>
+      </div>
+
       <section className="product-range growth-product-range">
         <div className="product-range__inner">
           <div className="product-range__header">

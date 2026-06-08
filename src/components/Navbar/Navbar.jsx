@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import GoogleTranslate from '../GoogleTranslate/GoogleTranslate.jsx';
 import './Navbar.css';
 
@@ -20,10 +20,16 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
+  const { pathname } = useLocation();
   const navbarRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 60);
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 60;
+      setIsScrolled(scrolled);
+      setIsAtTop(window.scrollY === 0);
+    };
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -50,8 +56,13 @@ function Navbar() {
     setIsProductsOpen(false);
   };
 
+  const isTransparent = pathname === '/' && isAtTop && !isOpen;
+
   return (
-    <header className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`} ref={navbarRef}>
+    <header
+      className={`navbar ${isScrolled ? 'navbar--scrolled' : ''} ${isTransparent ? 'navbar--transparent' : ''}`}
+      ref={navbarRef}
+    >
       <div className="navbar__inner container">
         <Link className="navbar__brand" to="/" onClick={closeMenu}>
           <img src="/Logo halftone.svg" alt="Agrosapro" />

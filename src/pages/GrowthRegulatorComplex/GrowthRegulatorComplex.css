@@ -41,11 +41,9 @@
 }
 
 .detail-tabs-wrapper {
-  position: sticky;
-  top: var(--navbar-height);
-  z-index: 20;
+  position: static;
   background: var(--color-bg);
-  padding: 16px 24px;
+  padding: 32px 24px 24px;
   border-bottom: 1px solid var(--color-border);
   display: flex;
   justify-content: center;

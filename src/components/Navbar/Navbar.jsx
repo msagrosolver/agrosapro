@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 const navLinks = [
@@ -53,6 +53,7 @@ function Navbar() {
     setIsProductsOpen(false);
   };
 
+  const navigate = useNavigate();
   const isTransparent = pathname === '/' && isAtTop && !isOpen;
 
   return (
@@ -76,7 +77,10 @@ function Navbar() {
               className="dropdown-trigger"
               type="button"
               aria-expanded={isProductsOpen}
-              onClick={() => setIsProductsOpen((value) => !value)}
+              onClick={() => {
+                navigate('/products');
+                setIsProductsOpen((v) => !v);
+              }}
             >
               Products
             </button>

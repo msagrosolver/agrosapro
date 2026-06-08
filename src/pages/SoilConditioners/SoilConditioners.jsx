@@ -54,7 +54,7 @@ function SoilConditioners() {
         subtitle="Granulate preparations based on organic sapropel and lowland peat. Restore soil health, correct pH, and build lasting fertility."
         imageSrc={heroSoilImage}
         breadcrumbs={[
-          { label: 'Products', to: '/' },
+          { label: 'Products', to: '/products' },
           { label: 'Soil Conditioners', to: '/products/soil-conditioners' },
         ]}
       />

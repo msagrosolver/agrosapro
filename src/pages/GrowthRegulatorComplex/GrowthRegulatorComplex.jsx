@@ -158,7 +158,7 @@ function GrowthRegulatorComplex() {
         title="Agrosapro Complex"
         subtitle="Full-spectrum liquid NPK top dressing with humic and fulvic acids and free amino acids. For systemic crop care in critical phenological phases."
         breadcrumbs={[
-          { label: 'Products', to: '/' },
+          { label: 'Products', to: '/products' },
           { label: 'Growth Regulators', to: '/products/growth-regulators' },
           { label: 'Agrosapro Complex', to: '/products/growth-regulators/complex' },
         ]}

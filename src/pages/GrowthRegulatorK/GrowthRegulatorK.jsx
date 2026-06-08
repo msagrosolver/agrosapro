@@ -187,7 +187,7 @@ function GrowthRegulatorK() {
         title="Agrosapro K"
         subtitle="Liquid potassium-humate formulation with high content of humic and fulvic acids. For soil correction, seed dressing and phytosanitary applications."
         breadcrumbs={[
-          { label: 'Products', to: '/' },
+          { label: 'Products', to: '/products' },
           { label: 'Growth Regulators', to: '/products/growth-regulators' },
           { label: 'Agrosapro K', to: '/products/growth-regulators/k' },
         ]}

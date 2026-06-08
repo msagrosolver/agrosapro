@@ -176,7 +176,7 @@ function SoilConditionerPhoenix() {
         title="Agrosapro pHoenix"
         subtitle="Advanced pH correction with sulfur-containing formula for saline, exhausted and disturbed soils."
         breadcrumbs={[
-          { label: 'Products', to: '/' },
+          { label: 'Products', to: '/products' },
           { label: 'Soil Conditioners', to: '/products/soil-conditioners' },
           { label: 'Agrosapro pHoenix', to: '/products/soil-conditioners/phoenix' },
         ]}

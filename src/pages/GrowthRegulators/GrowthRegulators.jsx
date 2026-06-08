@@ -54,7 +54,7 @@ function GrowthRegulators() {
         subtitle="Liquid humate concentrates that combine the power of organic sapropel with targeted mineral nutrition."
         imageSrc={heroGrowthImage}
         breadcrumbs={[
-          { label: 'Products', to: '/' },
+          { label: 'Products', to: '/products' },
           { label: 'Growth Regulators', to: '/products/growth-regulators' },
         ]}
       />

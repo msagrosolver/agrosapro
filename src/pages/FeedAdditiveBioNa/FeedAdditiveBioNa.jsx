@@ -131,7 +131,7 @@ function FeedAdditiveBioNa() {
         title="Agrosapro BioNa"
         subtitle="Universal liquid sapropel supplement for all farm animals and poultry. Bactericidal, antifungal, completely harmless."
         breadcrumbs={[
-          { label: 'Products', to: '/' },
+          { label: 'Products', to: '/products' },
           { label: 'Feed Additives', to: '/products/feed-additives' },
           { label: 'Agrosapro BioNa', to: '/products/feed-additives/biona' },
         ]}

@@ -49,7 +49,7 @@ function FeedAdditives() {
         subtitle="Liquid sapropel supplement for all livestock and poultry. Centuries of empirical use, backed by modern science."
         imageSrc={heroFeedImage}
         breadcrumbs={[
-          { label: 'Products', to: '/' },
+          { label: 'Products', to: '/products' },
           { label: 'Feed Additives', to: '/products/feed-additives' },
         ]}
       />

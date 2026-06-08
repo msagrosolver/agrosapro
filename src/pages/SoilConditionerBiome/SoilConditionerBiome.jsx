@@ -170,7 +170,7 @@ function SoilConditionerBiome() {
         title="Agrosapro Biome"
         subtitle="Base soil improver for all agricultural soils based on organic sapropel and lowland peat."
         breadcrumbs={[
-          { label: 'Products', to: '/' },
+          { label: 'Products', to: '/products' },
           { label: 'Soil Conditioners', to: '/products/soil-conditioners' },
           { label: 'Agrosapro Biome', to: '/products/soil-conditioners/biome' },
         ]}

@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const footerLinks = [
-  { label: 'Products', href: '#products' },
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'Technology', href: '#technology' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Products', to: '/products' },
+  { label: 'Technology', to: '/technology' },
+  { label: 'Solutions', to: '/solutions' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 function Footer() {
@@ -12,10 +13,10 @@ function Footer() {
     <footer className="footer">
       <div className="footer__main container">
         <div className="footer__brand">
-          <a className="footer__logo" href="#top">
+          <Link className="footer__logo" to="/">
             <img src="/Logo halftone-white.svg" alt="Agrosapro" />
             <span>Agrosapro</span>
-          </a>
+          </Link>
           <p className="footer__tagline">European sapropel solutions</p>
           <p>Authorized European distributor of sapropel-based agricultural preparations.</p>
         </div>
@@ -23,9 +24,9 @@ function Footer() {
         <nav className="footer__nav" aria-label="Footer navigation">
           <h2>Navigation</h2>
           {footerLinks.map((link) => (
-            <a href={link.href} key={link.label}>
+            <Link to={link.to} key={link.label}>
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -37,7 +38,7 @@ function Footer() {
       </div>
 
       <div className="footer__bottom container">
-        <p>(c) 2025 Agrosapro. All rights reserved.</p>
+        <p>© 2025 Agrosapro. All rights reserved.</p>
         <div>
           <a href="#">Privacy Policy</a>
           <a href="#">Terms</a>

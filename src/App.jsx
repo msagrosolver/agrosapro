@@ -17,6 +17,7 @@ import SoilConditionerBiome from './pages/SoilConditionerBiome/SoilConditionerBi
 import SoilConditionerPhoenix from './pages/SoilConditionerPhoenix/SoilConditionerPhoenix.jsx';
 import SoilConditionersPage from './pages/SoilConditioners/SoilConditioners.jsx';
 import TechnologyPage from './pages/Technology/Technology.jsx';
+import ProductsOverview from './pages/Products/ProductsOverview.jsx';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<ProductsOverview />} />
         <Route path="/products/soil-conditioners" element={<SoilConditionersPage />} />
         <Route path="/products/soil-conditioners/biome" element={<SoilConditionerBiome />} />
         <Route path="/products/soil-conditioners/phoenix" element={<SoilConditionerPhoenix />} />

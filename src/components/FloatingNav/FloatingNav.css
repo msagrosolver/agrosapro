@@ -1,0 +1,53 @@
+.floating-nav {
+  position: fixed;
+  bottom: 32px;
+  right: 28px;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.floating-nav__btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1.5px solid rgba(45, 90, 27, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  color: #2D5A1B;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+  transition: all 0.2s ease;
+}
+
+.floating-nav__btn:hover {
+  background: #EAF3DE;
+  border-color: #2D5A1B;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(45, 90, 27, 0.15);
+}
+
+/* Scroll to top button: hidden by default, fades in after scrolling */
+.floating-nav__btn--top {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-nav__btn--top.floating-nav__btn--visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+/* Keep away from Google Translate widget */
+@media (max-width: 768px) {
+  .floating-nav {
+    bottom: 80px;
+    right: 16px;
+  }
+}

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar.jsx';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop.jsx';
 import Footer from './components/Footer/Footer.jsx';
+import FloatingNav from './components/FloatingNav/FloatingNav.jsx';
 import AboutPage from './pages/About/About.jsx';
 import ContactPage from './pages/Contact/Contact.jsx';
 import FeedAdditiveBioNa from './pages/FeedAdditiveBioNa/FeedAdditiveBioNa.jsx';
@@ -38,6 +39,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
+      <FloatingNav />
     </BrowserRouter>
   );
 }

@@ -185,7 +185,7 @@ function SoilConditionerPhoenix() {
       />
 
       <section className="soil-detail product-detail-content">
-        <div className="soil-detail__inner">
+        <div className="detail-tabs-wrapper">
           <div className="detail-tabs" role="tablist" aria-label="Agrosapro pHoenix details">
             {tabs.map((tab) => (
               <button
@@ -200,7 +200,9 @@ function SoilConditionerPhoenix() {
               </button>
             ))}
           </div>
+        </div>
 
+        <div className="soil-detail__inner">
           <div className="tab-content tab-section" role="tabpanel">
             <TabContent activeTab={activeTab} />
           </div>

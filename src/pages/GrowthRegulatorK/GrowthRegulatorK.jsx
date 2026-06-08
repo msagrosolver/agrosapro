@@ -196,7 +196,7 @@ function GrowthRegulatorK() {
       />
 
       <section className="soil-detail product-detail-content">
-        <div className="soil-detail__inner">
+        <div className="detail-tabs-wrapper">
           <div className="detail-tabs" role="tablist" aria-label="Agrosapro K details">
             {tabs.map((tab) => (
               <button
@@ -211,7 +211,9 @@ function GrowthRegulatorK() {
               </button>
             ))}
           </div>
+        </div>
 
+        <div className="soil-detail__inner">
           <div className="tab-content tab-section" role="tabpanel">
             <TabContent activeTab={activeTab} />
           </div>

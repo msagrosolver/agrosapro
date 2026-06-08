@@ -140,18 +140,7 @@ function FeedAdditiveBioNa() {
       />
 
       <section className="soil-detail product-detail-content">
-        <div className="soil-detail__inner">
-          <div className="suitable-for-row" aria-label="Suitable animals">
-            <p className="suitable-for-label">Suitable for:</p>
-            <div className="suitable-for-badges">
-              {suitableFor.map((item) => (
-                <span className="suitable-for-badge" key={item}>
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-
+        <div className="detail-tabs-wrapper">
           <div className="detail-tabs" role="tablist" aria-label="Agrosapro BioNa details">
             {tabs.map((tab) => (
               <button
@@ -165,6 +154,19 @@ function FeedAdditiveBioNa() {
                 {tab}
               </button>
             ))}
+          </div>
+        </div>
+
+        <div className="soil-detail__inner">
+          <div className="suitable-for-row" aria-label="Suitable animals">
+            <p className="suitable-for-label">Suitable for:</p>
+            <div className="suitable-for-badges">
+              {suitableFor.map((item) => (
+                <span className="suitable-for-badge" key={item}>
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
           <div className="tab-content tab-section" role="tabpanel">

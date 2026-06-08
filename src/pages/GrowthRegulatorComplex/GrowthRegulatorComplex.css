@@ -25,31 +25,44 @@
 }
 
 .soil-detail {
-  padding: 80px 24px;
-  background: #fff;
+  padding: 0 24px 80px;
+  background: var(--color-bg);
 }
 
 .product-detail-content {
-  padding-top: 0;
+  padding-top: 0 !important;
 }
 
 .soil-detail__inner {
   width: min(100%, 1140px);
   margin: 0 auto;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.detail-tabs-wrapper {
+  position: sticky;
+  top: var(--navbar-height);
+  z-index: 20;
+  background: var(--color-bg);
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: center;
 }
 
 .detail-tabs {
+  position: static;
   display: flex;
   gap: 6px;
-  border: 1.5px solid rgba(var(--color-primary-rgb), 0.15);
+  border: 1.5px solid rgba(45, 90, 27, 0.15);
   border-radius: 999px;
-  margin-bottom: 32px;
   padding: 5px;
   background: white;
   overflow-x: auto;
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  margin: 0;
 }
 
 .detail-tabs__button {
@@ -151,7 +164,13 @@
 }
 
 .tab-section {
-  padding-top: 24px;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.tab-content {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .composition-table {

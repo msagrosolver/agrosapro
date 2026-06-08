@@ -39,7 +39,7 @@
 .hero__copy {
   position: relative;
   z-index: 1;
-  max-width: 700px;
+  max-width: 620px;
 }
 
 .hero__eyebrow {
@@ -47,20 +47,20 @@
 }
 
 .hero h1 {
-  max-width: 760px;
+  max-width: 600px;
   margin: 0;
-  font-size: clamp(2.35rem, 7vw, 4.8rem);
+  font-size: clamp(1.9rem, 5vw, 3.6rem);
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
 }
 
 .hero__subheadline {
-  max-width: 610px;
-  margin: 22px 0 0;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  line-height: 1.75;
+  max-width: 520px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  line-height: 1.7;
 }
 
 .hero__actions {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroBioNaImage from '../../assets/images/hero-biona.jpg';
 import './FeedAdditiveBioNa.css';
 
 const tabs = ['Composition', 'Description', 'Benefits', 'Application'];
@@ -130,6 +131,7 @@ function FeedAdditiveBioNa() {
         eyebrow="Feed Additive"
         title="Agrosapro BioNa"
         subtitle="Universal liquid sapropel supplement for all farm animals and poultry. Bactericidal, antifungal, completely harmless."
+        imageSrc={heroBioNaImage}
         breadcrumbs={[
           { label: 'Products', to: '/products' },
           { label: 'Feed Additives', to: '/products/feed-additives' },

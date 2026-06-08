@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroKImage from '../../assets/images/hero-k.jpg';
 import './GrowthRegulatorK.css';
 
 const tabs = ['Composition', 'Description', 'Benefits', 'Application'];
@@ -186,6 +187,7 @@ function GrowthRegulatorK() {
         eyebrow="Growth Regulator"
         title="Agrosapro K"
         subtitle="Liquid potassium-humate formulation with high content of humic and fulvic acids. For soil correction, seed dressing and phytosanitary applications."
+        imageSrc={heroKImage}
         breadcrumbs={[
           { label: 'Products', to: '/products' },
           { label: 'Growth Regulators', to: '/products/growth-regulators' },

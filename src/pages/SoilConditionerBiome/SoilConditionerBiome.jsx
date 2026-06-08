@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroBiomeImage from '../../assets/images/hero-biome.jpg';
 import './SoilConditionerBiome.css';
 
 const tabs = ['Composition', 'Description', 'Benefits', 'Application'];
@@ -169,6 +170,7 @@ function SoilConditionerBiome() {
         eyebrow="Soil Conditioner"
         title="Agrosapro Biome"
         subtitle="Base soil improver for all agricultural soils based on organic sapropel and lowland peat."
+        imageSrc={heroBiomeImage}
         breadcrumbs={[
           { label: 'Products', to: '/products' },
           { label: 'Soil Conditioners', to: '/products/soil-conditioners' },

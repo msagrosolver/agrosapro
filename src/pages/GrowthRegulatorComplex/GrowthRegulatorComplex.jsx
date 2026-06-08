@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroComplexImage from '../../assets/images/hero-complex.jpg';
 import './GrowthRegulatorComplex.css';
 
 const tabs = ['Composition', 'Description', 'Benefits', 'Application'];
@@ -157,6 +158,7 @@ function GrowthRegulatorComplex() {
         eyebrow="Growth Regulator"
         title="Agrosapro Complex"
         subtitle="Full-spectrum liquid NPK top dressing with humic and fulvic acids and free amino acids. For systemic crop care in critical phenological phases."
+        imageSrc={heroComplexImage}
         breadcrumbs={[
           { label: 'Products', to: '/products' },
           { label: 'Growth Regulators', to: '/products/growth-regulators' },

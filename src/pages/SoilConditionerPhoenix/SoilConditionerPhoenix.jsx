@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroPhoenixImage from '../../assets/images/hero-phoenix.jpg';
 import './SoilConditionerPhoenix.css';
 
 const tabs = ['Composition', 'Description', 'Benefits', 'Application'];
@@ -175,6 +176,7 @@ function SoilConditionerPhoenix() {
         eyebrow="Soil Conditioner"
         title="Agrosapro pHoenix"
         subtitle="Advanced pH correction with sulfur-containing formula for saline, exhausted and disturbed soils."
+        imageSrc={heroPhoenixImage}
         breadcrumbs={[
           { label: 'Products', to: '/products' },
           { label: 'Soil Conditioners', to: '/products/soil-conditioners' },

@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroGrowthImage from '../../assets/images/hero-growth-regulators.jpg';
+import growthIntroBackImage from '../../assets/images/growth-intro-back.jpg';
+import growthIntroFrontImage from '../../assets/images/growth-intro-front.jpg';
 import plantyImage from '../../assets/images/planty.jpg';
 import './GrowthRegulators.css';
 
@@ -49,6 +52,7 @@ function GrowthRegulators() {
         eyebrow="Product line"
         title="Growth Regulators"
         subtitle="Liquid humate concentrates that combine the power of organic sapropel with targeted mineral nutrition."
+        imageSrc={heroGrowthImage}
         breadcrumbs={[
           { label: 'Products', to: '/' },
           { label: 'Growth Regulators', to: '/products/growth-regulators' },
@@ -85,8 +89,18 @@ function GrowthRegulators() {
 
           <div className="image-stack" aria-label="Growth regulator imagery">
             <div className="dot-grid" aria-hidden="true" />
-            <div className="image-stack__placeholder img-back">Photo: liquid growth regulator application</div>
-            <div className="image-stack__placeholder img-front">Photo: intensive crop rows greenhouse</div>
+            <img
+              className="image-stack__image img-back"
+              src={growthIntroBackImage}
+              alt="Greenhouse crop rows with drip irrigation in warm daylight"
+              loading="lazy"
+            />
+            <img
+              className="image-stack__image img-front"
+              src={growthIntroFrontImage}
+              alt="Healthy young plant root system in rich soil"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>

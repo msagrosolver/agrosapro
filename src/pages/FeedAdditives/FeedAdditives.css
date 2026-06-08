@@ -45,17 +45,11 @@
   z-index: 0;
 }
 
-.image-stack__placeholder {
-  display: flex;
+.image-stack__image {
+  display: block;
   aspect-ratio: 4 / 3;
-  align-items: center;
-  justify-content: center;
   border: 1px solid rgba(var(--color-primary-rgb), 0.12);
-  color: rgba(var(--color-primary-rgb), 0.72);
-  font-size: 0.88rem;
-  font-weight: 700;
-  line-height: 1.35;
-  text-align: center;
+  object-fit: cover;
 }
 
 .img-back {
@@ -265,11 +259,6 @@
   .image-stack {
     min-height: 300px;
     padding: 28px 0 28px 28px;
-  }
-
-  .image-stack__placeholder {
-    padding: 18px;
-    font-size: 0.78rem;
   }
 
   .dot-grid {

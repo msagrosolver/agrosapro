@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import './PageHero.css';
 
-function PageHero({ eyebrow, title, subtitle, breadcrumbs }) {
+function PageHero({ eyebrow, title, subtitle, breadcrumbs, imageSrc }) {
   return (
     <section className="page-hero">
-      <div className="page-hero-bg" />
+      <div className="page-hero-bg" style={imageSrc ? { backgroundImage: `url(${imageSrc})` } : undefined} />
       <div className="page-hero-overlay" />
       <div className="page-hero-content">
         {breadcrumbs && (

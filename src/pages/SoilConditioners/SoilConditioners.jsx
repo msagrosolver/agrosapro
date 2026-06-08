@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroSoilImage from '../../assets/images/hero-soil-conditioners.jpg';
 import plantyImage from '../../assets/images/planty.jpg';
+import soilIntroBackImage from '../../assets/images/soil-intro-back.jpg';
+import soilIntroFrontImage from '../../assets/images/soil-intro-front.jpg';
 import './SoilConditioners.css';
 
 const previewCards = [
@@ -49,6 +52,7 @@ function SoilConditioners() {
         eyebrow="Product line"
         title="Soil Conditioners"
         subtitle="Granulate preparations based on organic sapropel and lowland peat. Restore soil health, correct pH, and build lasting fertility."
+        imageSrc={heroSoilImage}
         breadcrumbs={[
           { label: 'Products', to: '/' },
           { label: 'Soil Conditioners', to: '/products/soil-conditioners' },
@@ -89,8 +93,18 @@ function SoilConditioners() {
 
           <div className="image-stack" aria-label="Soil conditioner imagery">
             <div className="dot-grid" aria-hidden="true" />
-            <div className="image-stack__placeholder img-back">Photo: corn seedlings in sunlit soil</div>
-            <div className="image-stack__placeholder img-front">Photo: young plants emerging from soil</div>
+            <img
+              className="image-stack__image img-back"
+              src={soilIntroBackImage}
+              alt="Corn seedlings emerging from rich dark soil in warm sunlight"
+              loading="lazy"
+            />
+            <img
+              className="image-stack__image img-front"
+              src={soilIntroFrontImage}
+              alt="Young green plants growing from soil with visible roots"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>

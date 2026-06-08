@@ -1,4 +1,7 @@
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroTechnologyImage from '../../assets/images/hero-technology.jpg';
+import technologyIntroBackImage from '../../assets/images/technology-intro-back.jpg';
+import technologyIntroFrontImage from '../../assets/images/technology-intro-front.jpg';
 import './Technology.css';
 
 const compositionStats = [
@@ -49,6 +52,7 @@ function Technology() {
         eyebrow="Our technology"
         title="Clever by Nature"
         subtitle="A synergy of natural science and smart production that preserves everything valuable in sapropel - and delivers it in a consistently reproducible form."
+        imageSrc={heroTechnologyImage}
         breadcrumbs={[{ label: 'Technology', to: '/technology' }]}
       />
 
@@ -75,8 +79,18 @@ function Technology() {
 
           <div className="image-stack" aria-label="Raw material imagery">
             <div className="dot-grid" aria-hidden="true" />
-            <div className="image-stack__placeholder img-back">Photo: pristine Belarusian lake / peatland</div>
-            <div className="image-stack__placeholder img-front">Photo: sapropel raw material / rich sediment</div>
+            <img
+              className="image-stack__image img-back"
+              src={technologyIntroBackImage}
+              alt="Pristine Belarusian lake at dawn with mist over peatland"
+              loading="lazy"
+            />
+            <img
+              className="image-stack__image img-front"
+              src={technologyIntroFrontImage}
+              alt="Rich dark sapropel lake sediment held in hands"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -104,8 +118,18 @@ function Technology() {
         <div className="tech-container tech-two-col tech-two-col--reverse">
           <div className="image-stack" aria-label="Production technology imagery">
             <div className="dot-grid" aria-hidden="true" />
-            <div className="image-stack__placeholder img-back">Photo: production facility / laboratory</div>
-            <div className="image-stack__placeholder img-front">Photo: processing equipment / extraction</div>
+            <img
+              className="image-stack__image img-back"
+              src={technologyIntroFrontImage}
+              alt="Close-up of natural sapropel sediment used for agricultural preparations"
+              loading="lazy"
+            />
+            <img
+              className="image-stack__image img-front"
+              src={technologyIntroBackImage}
+              alt="Natural Belarusian lake environment where sapropel forms"
+              loading="lazy"
+            />
           </div>
 
           <div className="tech-copy">

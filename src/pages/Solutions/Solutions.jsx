@@ -1,5 +1,12 @@
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroSolutionsImage from '../../assets/images/hero-solutions.jpg';
+import solutionsHydroponicsImage from '../../assets/images/solutions-hydroponics.jpg';
+import solutionsLawnImage from '../../assets/images/solutions-lawn.jpg';
+import solutionsLivestockImage from '../../assets/images/solutions-livestock.jpg';
+import solutionsPresowingImage from '../../assets/images/solutions-presowing.jpg';
+import solutionsRevegetationImage from '../../assets/images/solutions-revegetation.jpg';
+import solutionsWaterImage from '../../assets/images/solutions-water.jpg';
 import './Solutions.css';
 
 function Solutions() {
@@ -9,6 +16,7 @@ function Solutions() {
         eyebrow="Applications"
         title="Where Agrosapro Works"
         subtitle="From intensive crop production to revegetation, hydroponics to animal husbandry - sapropel-based preparations deliver across a wide range of agricultural contexts."
+        imageSrc={heroSolutionsImage}
         breadcrumbs={[{ label: 'Solutions', to: '/solutions' }]}
       />
 
@@ -32,6 +40,12 @@ function Solutions() {
 
       <section id="revegetation" className="solution-block solution-block--odd">
         <div className="solution-block__inner">
+          <img
+            className="solution-block__image"
+            src={solutionsRevegetationImage}
+            alt="Degraded industrial land with new green plants beginning to grow"
+            loading="lazy"
+          />
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Environmental rehabilitation</p>
             <h3>Revegetation</h3>
@@ -58,12 +72,17 @@ function Solutions() {
               </div>
             </div>
           </div>
-          <div className="solution-image-placeholder">Photo: degraded land recovery / revegetation project</div>
         </div>
       </section>
 
       <section id="pre-sowing" className="solution-block solution-block--even">
         <div className="solution-block__inner solution-block__inner--reverse">
+          <img
+            className="solution-block__image"
+            src={solutionsPresowingImage}
+            alt="Seeds germinating in rich soil in warm golden light"
+            loading="lazy"
+          />
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Crop production</p>
             <h3>Pre-sowing preparation</h3>
@@ -90,12 +109,17 @@ function Solutions() {
               </div>
             </div>
           </div>
-          <div className="solution-image-placeholder">Photo: seed germination / young seedlings</div>
         </div>
       </section>
 
       <section id="professional-lawn" className="solution-block solution-block--odd">
         <div className="solution-block__inner">
+          <img
+            className="solution-block__image"
+            src={solutionsLawnImage}
+            alt="Perfectly maintained green sports lawn with morning dew"
+            loading="lazy"
+          />
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Urban green infrastructure</p>
             <h3>Professional lawns &amp; urban green</h3>
@@ -125,12 +149,17 @@ function Solutions() {
               </div>
             </div>
           </div>
-          <div className="solution-image-placeholder">Photo: golf course / sports lawn / urban park</div>
         </div>
       </section>
 
       <section id="water-bodies" className="solution-block solution-block--even">
         <div className="solution-block__inner solution-block__inner--reverse">
+          <img
+            className="solution-block__image"
+            src={solutionsWaterImage}
+            alt="Clean agricultural pond with clear water and natural surroundings"
+            loading="lazy"
+          />
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Environmental remediation</p>
             <h3>Polluted water bodies</h3>
@@ -157,12 +186,17 @@ function Solutions() {
               </div>
             </div>
           </div>
-          <div className="solution-image-placeholder">Photo: clean lake / water body remediation</div>
         </div>
       </section>
 
       <section id="animal-husbandry" className="solution-block solution-block--odd">
         <div className="solution-block__inner">
+          <img
+            className="solution-block__image"
+            src={solutionsLivestockImage}
+            alt="Healthy cattle and sheep grazing in an open green pasture"
+            loading="lazy"
+          />
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Livestock &amp; poultry</p>
             <h3>Animal husbandry</h3>
@@ -189,12 +223,17 @@ function Solutions() {
               </div>
             </div>
           </div>
-          <div className="solution-image-placeholder">Photo: healthy livestock / poultry farm</div>
         </div>
       </section>
 
       <section id="hydroponics" className="solution-block solution-block--even">
         <div className="solution-block__inner solution-block__inner--reverse">
+          <img
+            className="solution-block__image"
+            src={solutionsHydroponicsImage}
+            alt="Modern hydroponic growing system with lush green lettuce and herbs"
+            loading="lazy"
+          />
           <div className="solution-block__copy">
             <p className="solution-eyebrow">Controlled environment growing</p>
             <h3>Hydroponics</h3>
@@ -223,7 +262,6 @@ function Solutions() {
               </div>
             </div>
           </div>
-          <div className="solution-image-placeholder">Photo: hydroponic growing system / greenhouse</div>
         </div>
       </section>
 

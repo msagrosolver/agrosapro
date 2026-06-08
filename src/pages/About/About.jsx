@@ -1,4 +1,5 @@
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroAboutImage from '../../assets/images/hero-about.jpg';
 import './About.css';
 
 function About() {
@@ -8,13 +9,15 @@ function About() {
         eyebrow="About Agrosapro"
         title="In Step with the Demands of the Times"
         subtitle="Authorized European representative of sapropel-based agricultural preparations, bringing the wealth of Belarusian peatlands to European farmers."
+        imageSrc={heroAboutImage}
       />
-      <section className="page-placeholder">
-        <div className="page-placeholder__inner container">
+      <section className="about-summary">
+        <div className="about-summary__inner container">
           <h2>Company profile and market position</h2>
           <p>
-            This page is reserved for company background, regional representation details, and the broader Agrosapro story
-            for partners and distributors.
+            Agrosapro represents sapropel-based agricultural preparations for European partners, farm operators, and
+            distributors looking for practical natural inputs that support soil health, resilient crops, and responsible
+            livestock production.
           </p>
         </div>
       </section>

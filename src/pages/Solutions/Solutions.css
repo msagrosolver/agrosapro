@@ -36,20 +36,23 @@
 }
 
 .solution-block__inner {
-  width: min(100% - 48px, 1140px);
+  width: min(100%, 1140px);
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 64px;
+}
+
+.solution-block__inner::after {
+  display: block;
+  clear: both;
+  content: '';
 }
 
 .solution-block__inner--reverse {
-  flex-direction: row-reverse;
+  text-align: left;
 }
 
-.solution-block__copy,
-.solution-image-placeholder {
-  flex: 1;
+.solution-block__copy {
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .solution-eyebrow {
@@ -74,6 +77,7 @@
   margin: 16px 0 0;
   color: var(--color-text-muted);
   line-height: 1.8;
+  text-align: justify;
 }
 
 .solution-block__copy strong {
@@ -89,6 +93,7 @@
   color: #2d5a1b;
   font-size: 14px;
   font-weight: 600;
+  text-align: left;
 }
 
 .solution-badges {
@@ -110,19 +115,22 @@
   line-height: 1.2;
 }
 
-.solution-image-placeholder {
-  width: 100%;
-  aspect-ratio: 16 / 9;
+.solution-block__image {
+  float: right;
+  display: block;
+  width: min(42%, 460px);
+  min-width: 300px;
+  max-width: 460px;
+  margin: 0 0 28px 56px;
+  aspect-ratio: 4 / 3;
   border-radius: 16px;
-  background: #eaf3de;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  color: #6b6b52;
-  font-size: 13px;
-  font-weight: 600;
-  text-align: center;
+  object-fit: cover;
+  box-shadow: var(--shadow-card);
+}
+
+.solution-block__inner--reverse .solution-block__image {
+  float: left;
+  margin: 0 56px 28px 0;
 }
 
 .solutions-cta {
@@ -168,20 +176,40 @@
 }
 
 @media (max-width: 960px) {
-  .solution-block__inner,
-  .solution-block__inner--reverse {
-    gap: 40px;
+  .solution-block__image {
+    width: min(44%, 400px);
+    min-width: 260px;
+    margin: 0 0 24px 36px;
+  }
+
+  .solution-block__inner--reverse .solution-block__image {
+    margin: 0 36px 24px 0;
   }
 }
 
 @media (max-width: 768px) {
   .solution-block__inner,
   .solution-block__inner--reverse {
+    display: flex;
     flex-direction: column;
+    gap: 28px;
   }
 
-  .solution-image-placeholder {
+  .solution-block__image {
+    float: none;
     order: 2;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .solution-block__inner--reverse .solution-block__image {
+    margin: 0;
+  }
+
+  .solution-block__copy {
+    order: 1;
   }
 }
 
@@ -196,6 +224,6 @@
   .solutions-intro__inner,
   .solution-block__inner,
   .solutions-cta__inner {
-    width: min(100% - 32px, 1140px);
+    width: min(100%, 1140px);
   }
 }

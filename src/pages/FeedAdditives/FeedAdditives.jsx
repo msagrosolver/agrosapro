@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroFeedImage from '../../assets/images/hero-feed-additives.jpg';
+import feedIntroBackImage from '../../assets/images/feed-intro-back.jpg';
+import feedIntroFrontImage from '../../assets/images/feed-intro-front.jpg';
 import plantyImage from '../../assets/images/planty.jpg';
 import './FeedAdditives.css';
 
@@ -44,6 +47,7 @@ function FeedAdditives() {
         eyebrow="Product line"
         title="Feed Additives"
         subtitle="Liquid sapropel supplement for all livestock and poultry. Centuries of empirical use, backed by modern science."
+        imageSrc={heroFeedImage}
         breadcrumbs={[
           { label: 'Products', to: '/' },
           { label: 'Feed Additives', to: '/products/feed-additives' },
@@ -82,8 +86,18 @@ function FeedAdditives() {
 
           <div className="image-stack" aria-label="Feed additive imagery">
             <div className="dot-grid" aria-hidden="true" />
-            <div className="image-stack__placeholder img-back">Photo: healthy livestock / poultry farm</div>
-            <div className="image-stack__placeholder img-front">Photo: young animals / fur farm</div>
+            <img
+              className="image-stack__image img-back"
+              src={feedIntroBackImage}
+              alt="Young healthy piglets and poultry in a clean farm environment"
+              loading="lazy"
+            />
+            <img
+              className="image-stack__image img-front"
+              src={feedIntroFrontImage}
+              alt="Close-up of young healthy farm animals in warm natural light"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>

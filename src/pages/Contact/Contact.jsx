@@ -1,4 +1,5 @@
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroContactImage from '../../assets/images/hero-contact.jpg';
 import './Contact.css';
 
 function Contact() {
@@ -8,13 +9,14 @@ function Contact() {
         eyebrow="Get in touch"
         title="Request a Quote or Consultation"
         subtitle="Whether you are a distributor, farm operator or agricultural consultant — we are here to help you find the right Agrosapro solution."
+        imageSrc={heroContactImage}
       />
-      <section className="page-placeholder">
-        <div className="page-placeholder__inner container">
+      <section className="contact-summary">
+        <div className="contact-summary__inner container">
           <h2>Start the conversation</h2>
           <p>
-            This placeholder section is ready for dedicated contact details, inquiry forms, and commercial onboarding
-            content once the page is expanded.
+            Tell us about your crop, soil, livestock, distribution, or remediation project, and we will help identify the
+            Agrosapro preparation and dosage path that fits your conditions.
           </p>
         </div>
       </section>

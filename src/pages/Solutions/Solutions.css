@@ -1,6 +1,6 @@
 .solutions-intro {
   padding: 72px 24px 48px;
-  background: #ffffff;
+  background: var(--color-bg);
 }
 
 .solutions-intro__inner {
@@ -11,7 +11,7 @@
 
 .solutions-intro__inner h2 {
   margin: 0;
-  color: #2d5a1b;
+  color: var(--color-primary);
   font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 600;
   line-height: 1.1;
@@ -28,11 +28,11 @@
 }
 
 .solution-block--odd {
-  background: #ffffff;
+  background: var(--color-bg);
 }
 
 .solution-block--even {
-  background: #f5efe0;
+  background: var(--color-bg-section);
 }
 
 .solution-block__inner {
@@ -57,7 +57,7 @@
 
 .solution-eyebrow {
   margin: 0;
-  color: #2d5a1b;
+  color: var(--color-primary);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -67,7 +67,7 @@
 
 .solution-block__copy h3 {
   margin: 12px 0 0;
-  color: #2d5a1b;
+  color: var(--color-primary);
   font-size: clamp(1.8rem, 3.4vw, 2.5rem);
   font-weight: 600;
   line-height: 1.15;
@@ -90,7 +90,7 @@
 
 .solution-products p {
   margin: 0;
-  color: #2d5a1b;
+  color: var(--color-primary);
   font-size: 14px;
   font-weight: 600;
   text-align: left;
@@ -108,8 +108,8 @@
   align-items: center;
   border-radius: 999px;
   padding: 5px 14px;
-  color: #2d5a1b;
-  background: #eaf3de;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
   font-size: 13px;
   font-weight: 500;
   line-height: 1.2;
@@ -135,8 +135,8 @@
 
 .solutions-cta {
   padding: 80px 24px;
-  color: #fff;
-  background: #2d5a1b;
+  color: var(--color-text-light);
+  background: var(--color-bg-dark);
 }
 
 .solutions-cta__inner {
@@ -147,7 +147,7 @@
 
 .solutions-cta__inner h2 {
   margin: 0;
-  color: #fff;
+  color: var(--color-text-light);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
 }
@@ -164,15 +164,15 @@
   margin-top: 28px;
   border-radius: 999px;
   padding: 12px 32px;
-  color: #2d5a1b;
-  background: #fff;
+  color: var(--color-primary);
+  background: var(--color-text-light);
   font-weight: 600;
   line-height: 1.2;
   transition: background-color 160ms ease;
 }
 
 .solutions-cta__button:hover {
-  background: #eaf3de;
+  background: var(--color-primary-light);
 }
 
 @media (max-width: 960px) {

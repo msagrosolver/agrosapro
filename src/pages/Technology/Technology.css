@@ -5,13 +5,13 @@
 
 .tech-foundation,
 .tech-production {
-  background: #ffffff;
+  background: var(--color-bg);
   padding: 96px 24px;
 }
 
 .tech-composition,
 .tech-advantages {
-  background: #f5efe0;
+  background: var(--color-bg-section);
   padding: 80px 24px;
 }
 
@@ -30,7 +30,7 @@
 .tech-composition__header h2,
 .tech-advantages__header h2 {
   margin: 0;
-  color: #2d5a1b;
+  color: var(--color-primary);
   font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 600;
   line-height: 1.1;
@@ -100,7 +100,7 @@
 
 .tech-composition__header p {
   margin: 14px 0 0;
-  color: #6b6b52;
+  color: var(--color-text-muted);
   font-size: 1rem;
 }
 
@@ -115,13 +115,13 @@
   border-radius: 16px;
   padding: 36px 24px;
   text-align: center;
-  background: #fff;
+  background: var(--color-bg);
   box-shadow: var(--shadow-card);
 }
 
 .tech-stat-card__value {
   margin: 0;
-  color: #2d5a1b;
+  color: var(--color-primary);
   font-size: 40px;
   font-weight: 700;
   line-height: 1;
@@ -136,7 +136,7 @@
 
 .tech-stat-card p {
   margin: 8px 0 0;
-  color: #6b6b52;
+  color: var(--color-text-muted);
   font-size: 13px;
   line-height: 1.5;
 }
@@ -151,13 +151,13 @@
 .tech-advantage-card {
   border-radius: 16px;
   padding: 32px 28px;
-  background: #fff;
+  background: var(--color-bg);
   box-shadow: var(--shadow-card);
 }
 
 .tech-advantage-card h4 {
   margin: 0;
-  color: #2d5a1b;
+  color: var(--color-primary);
   font-size: 1.15rem;
   font-weight: 700;
 }
@@ -171,8 +171,8 @@
 
 .tech-results {
   padding: 80px 24px;
-  color: #fff;
-  background: #2d5a1b;
+  color: var(--color-text-light);
+  background: var(--color-bg-dark);
 }
 
 .tech-results__inner {
@@ -183,7 +183,7 @@
 
 .tech-results__inner h2 {
   margin: 0;
-  color: #fff;
+  color: var(--color-text-light);
   font-size: clamp(2rem, 4vw, 36px);
   font-weight: 700;
 }

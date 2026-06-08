@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import GoogleTranslate from '../GoogleTranslate/GoogleTranslate.jsx';
 import './Navbar.css';
 
 const navLinks = [
   { label: 'Technology', to: '/technology' },
   { label: 'Solutions', to: '/solutions' },
-  { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ];
 
@@ -102,8 +100,6 @@ function Navbar() {
         </nav>
 
         <div className="navbar__actions">
-          <GoogleTranslate />
-
           <Link className="navbar__cta navbar__cta--desktop" to="/contact" onClick={closeMenu}>
             Request a quote
           </Link>

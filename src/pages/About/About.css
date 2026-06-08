@@ -1,7 +1,181 @@
-.about-summary {
-  padding: 72px 0;
+.about-mission {
+  background: #FFFFFF;
+  padding: 96px 24px;
 }
 
-.about-summary__inner {
-  max-width: 820px;
+.about-mission__inner {
+  width: min(100%, 1140px);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.about-mission__copy {
+  flex: 0 0 55%;
+}
+
+.about-mission__copy h2 {
+  margin: 0;
+  color: #2D5A1B;
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  line-height: 1.08;
+}
+
+.about-mission__copy p {
+  margin: 22px 0 0;
+  color: var(--color-text-muted);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.about-mission__media {
+  flex: 0 0 45%;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  background: #EAF3DE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6B6B52;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px;
+}
+
+.about-principles {
+  background: #F7F7F7;
+  padding: 80px 24px;
+}
+
+.about-principles__inner {
+  width: min(100%, 1140px);
+  margin: 0 auto;
+}
+
+.about-principles__inner h2 {
+  margin: 0;
+  color: #2D5A1B;
+  text-align: center;
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  line-height: 1.1;
+}
+
+.about-principles__grid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.about-principles__card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: var(--shadow-card);
+}
+
+.about-principles__card h4 {
+  margin: 0;
+  color: #2D5A1B;
+  font-size: 1.32rem;
+  line-height: 1.2;
+}
+
+.about-principles__card p {
+  margin: 16px 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.78;
+}
+
+.about-europe {
+  background: #2D5A1B;
+  padding: 80px 24px;
+}
+
+.about-europe__inner {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.about-europe__inner h2 {
+  margin: 0;
+  color: #FFFFFF;
+  font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.about-europe__inner p {
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.about-europe__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+  border-radius: 999px;
+  padding: 12px 32px;
+  background: #FFFFFF;
+  color: #2D5A1B;
+  font-size: 0.97rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: background-color 180ms ease;
+}
+
+.about-europe__cta:hover {
+  background: #EAF3DE;
+}
+
+@media (max-width: 960px) {
+  .about-mission {
+    padding: 80px 20px;
+  }
+
+  .about-mission__inner {
+    gap: 44px;
+  }
+
+  .about-principles,
+  .about-europe {
+    padding: 72px 20px;
+  }
+
+  .about-principles__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .about-mission__inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-mission__copy,
+  .about-mission__media {
+    flex: initial;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-mission,
+  .about-principles,
+  .about-europe {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .about-principles__card {
+    padding: 28px 22px;
+  }
 }

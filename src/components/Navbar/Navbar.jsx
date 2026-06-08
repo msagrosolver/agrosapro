@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import GoogleTranslate from '../GoogleTranslate/GoogleTranslate.jsx';
 import './Navbar.css';
 
 const navLinks = [
@@ -57,18 +58,6 @@ function Navbar() {
           <span>Agrosapro</span>
         </Link>
 
-        <button
-          className="navbar__toggle"
-          type="button"
-          aria-label="Toggle navigation"
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((value) => !value)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-
         <nav className={`navbar__nav ${isOpen ? 'navbar__nav--open' : ''}`} aria-label="Primary navigation">
           <div
             className={`nav-item-dropdown ${isProductsOpen ? 'is-open' : ''}`}
@@ -100,9 +89,25 @@ function Navbar() {
           </Link>
         </nav>
 
-        <Link className="navbar__cta navbar__cta--desktop" to="/contact" onClick={closeMenu}>
-          Request a quote
-        </Link>
+        <div className="navbar__actions">
+          <GoogleTranslate />
+
+          <Link className="navbar__cta navbar__cta--desktop" to="/contact" onClick={closeMenu}>
+            Request a quote
+          </Link>
+
+          <button
+            className="navbar__toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((value) => !value)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
     </header>
   );

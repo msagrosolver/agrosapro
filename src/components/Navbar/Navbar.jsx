@@ -5,7 +5,6 @@ import './Navbar.css';
 const navLinks = [
   { label: 'Technology', to: '/technology' },
   { label: 'Solutions', to: '/solutions' },
-  { label: 'Contact', to: '/contact' },
 ];
 
 const productLinks = [

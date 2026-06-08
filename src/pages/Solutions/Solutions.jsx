@@ -20,24 +20,6 @@ function Solutions() {
         breadcrumbs={[{ label: 'Solutions', to: '/solutions' }]}
       />
 
-      <section className="solutions-intro">
-        <div className="solutions-intro__inner">
-          <h2>Beyond fertilization</h2>
-          <p>
-            Some Agrosapro products go beyond the role of standard fertilizers - they are used to solve specific agronomic
-            and environmental problems, regardless of crop type or growth phase. We have experience rehabilitating depleted
-            lands, eliminating environmental damage in soils and water bodies, developing custom hydroponic nutrient
-            formulations, and improving urban green environments and professional lawns.
-          </p>
-          <p>
-            Peat-sapropel mixtures belong to physical and chemical disinfectant methods and are among the most effective
-            means of treating neglected or damaged areas - particularly for neutralizing highly toxic waste from industrial
-            agriculture, including bird droppings, filter sludge, gas and dust emissions, and storage facilities with
-            obsolete or banned pesticides.
-          </p>
-        </div>
-      </section>
-
       <section id="revegetation" className="solution-block solution-block--odd">
         <div className="solution-block__inner">
           <img

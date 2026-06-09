@@ -18,6 +18,7 @@ import SoilConditionerPhoenix from './pages/SoilConditionerPhoenix/SoilCondition
 import SoilConditionersPage from './pages/SoilConditioners/SoilConditioners.jsx';
 import TechnologyPage from './pages/Technology/Technology.jsx';
 import ProductsOverview from './pages/Products/ProductsOverview.jsx';
+import Documents from './pages/Documents/Documents.jsx';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/solutions" element={<SolutionsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/documents" element={<Documents />} />
       </Routes>
       <Footer />
       <FloatingNav />

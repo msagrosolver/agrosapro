@@ -215,6 +215,7 @@
 }
 
 .navbar__toggle {
+  position: relative;
   display: inline-grid;
   width: 42px;
   height: 42px;
@@ -225,11 +226,38 @@
 }
 
 .navbar__toggle span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 18px;
   height: 2px;
   border-radius: 2px;
   background: var(--color-primary);
   transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar__toggle span:nth-child(1) {
+  transform: translate(-50%, calc(-50% - 6px));
+}
+
+.navbar__toggle span:nth-child(2) {
+  transform: translate(-50%, -50%);
+}
+
+.navbar__toggle span:nth-child(3) {
+  transform: translate(-50%, calc(-50% + 6px));
+}
+
+.navbar__toggle[aria-expanded='true'] span:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.navbar__toggle[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle[aria-expanded='true'] span:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .navbar__nav {

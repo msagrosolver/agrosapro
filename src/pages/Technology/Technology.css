@@ -277,6 +277,15 @@
     padding-bottom: 64px;
   }
 
+  .tech-results__inner {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .tech-results__stats {
+    padding: 0 8px;
+  }
+
   .image-stack {
     min-height: 300px;
     padding: 28px 0 28px 28px;

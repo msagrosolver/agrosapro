@@ -4,6 +4,7 @@ import PageHero from '../../components/PageHero/PageHero.jsx';
 import soilImage from '../../assets/images/hero-soil-conditioners.jpg';
 import growthImage from '../../assets/images/hero-growth-regulators.jpg';
 import feedImage from '../../assets/images/hero-feed-additives.jpg';
+import productsOverviewImage from '../../assets/images/products_overview.jpg';
 import './ProductsOverview.css';
 
 const cards = [
@@ -62,6 +63,7 @@ function ProductsOverview() {
         title="Our Products"
         subtitle="Three focused product families — all built around reproducible humic and fulvic acid technology from pristine Belarusian sapropel."
         breadcrumbs={[{ label: 'Products', to: '/products' }]}
+        imageSrc={productsOverviewImage}
       />
 
       <section className="products-overview">

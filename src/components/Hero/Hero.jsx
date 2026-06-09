@@ -18,7 +18,7 @@ function Hero() {
             Green Deal.
           </p>
           <div className="hero__actions" aria-label="Primary actions">
-            <Link className="button button--primary" to="/products/soil-conditioners">
+            <Link className="button button--primary" to="/products">
               Explore our products
             </Link>
             <Link className="button button--outline" to="/technology">

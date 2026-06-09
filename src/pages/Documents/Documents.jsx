@@ -1,4 +1,5 @@
 import PageHero from '../../components/PageHero/PageHero.jsx';
+import heroDocumentsImage from '../../assets/images/hero_documents.jpg';
 import './Documents.css';
 
 const documents = [
@@ -66,6 +67,7 @@ function Documents() {
         title="Documents"
         subtitle="Download technical sheets, brochures and product documentation for all Agrosapro preparations."
         breadcrumbs={[{ label: 'Documents', to: '/documents' }]}
+        imageSrc={heroDocumentsImage}
       />
 
       <section className="documents-section">

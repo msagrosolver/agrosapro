@@ -188,6 +188,14 @@
 }
 
 @media (max-width: 768px) {
+  .solution-block {
+    padding-top: 40px;
+  }
+
+  .solutions-cta {
+    padding-top: 40px;
+  }
+
   .solution-block__inner,
   .solution-block__inner--reverse {
     display: flex;

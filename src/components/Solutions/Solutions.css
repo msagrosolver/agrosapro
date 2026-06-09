@@ -87,6 +87,11 @@
   margin: 10px 0 0;
   color: var(--color-text-muted);
   line-height: 1.58;
+  text-align: justify;
+}
+
+.solutions__header .section-intro {
+  text-align: justify;
 }
 
  .solution-card__body p {

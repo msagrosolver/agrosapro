@@ -1,5 +1,5 @@
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import revegetationImage from '../../assets/solution-revegetation.jpg';
 import hydroponicsImage from '../../assets/solution-hydroponics.jpg';
 import urbanGreenImage from '../../assets/solution-urban-green.jpg';
@@ -53,6 +53,16 @@ const solutions = [
 
 function Solutions() {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const scrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const scrollLeft = scrollRef.current.scrollLeft;
+    const cardWidth = scrollRef.current.offsetWidth - 40;
+    const index = Math.round(scrollLeft / cardWidth);
+    setActiveIndex(index);
+  };
 
   return (
     <section id="solutions" className="solutions section">
@@ -66,7 +76,7 @@ function Solutions() {
           </p>
         </div>
 
-        <div className="solutions__grid">
+        <div className="solutions__grid solutions__grid--desktop">
           {solutions.map((solution, index) => (
             <Link
               to={solutionLinks[solution.title]}
@@ -86,7 +96,7 @@ function Solutions() {
                 }}
               >
                 <div className="solution-card__media">
-                  <img src={solution.image} alt="" />
+                  <img src={solution.image} alt="" loading="lazy" />
                   <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                 </div>
                 <div className="solution-card__body">
@@ -98,22 +108,51 @@ function Solutions() {
           ))}
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: '40px' }}>
-          <Link
-            to="/solutions"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              color: '#2D5A1B',
-              fontSize: '15px',
-              fontWeight: '600',
-              textDecoration: 'none',
-              padding: '10px 24px',
-              border: '1.5px solid rgba(45,90,27,0.3)',
-              borderRadius: '999px',
-            }}
-          >
+        <div className="solutions__mobile">
+          <div className="solutions__swipe-track" ref={scrollRef} onScroll={handleScroll}>
+            {solutions.map((solution, index) => (
+              <Link
+                key={solution.title}
+                to={solutionLinks[solution.title]}
+                className="solutions__swipe-card"
+              >
+                <div className="solutions__swipe-image">
+                  <img src={solution.image} alt={solution.title} loading="lazy" />
+                  <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                </div>
+                <div className="solutions__swipe-body">
+                  <h3>{solution.title}</h3>
+                  <p>{solution.description}</p>
+                  <span className="solutions__swipe-btn">View →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="solutions__dots">
+            {solutions.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                className={`solutions__dot ${activeIndex === i ? 'solutions__dot--active' : ''}`}
+                onClick={() => {
+                  if (scrollRef.current) {
+                    const cardWidth = scrollRef.current.offsetWidth - 40;
+                    scrollRef.current.scrollTo({
+                      left: i * cardWidth,
+                      behavior: 'smooth',
+                    });
+                    setActiveIndex(i);
+                  }
+                }}
+                aria-label={solutions[i].title}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: '32px' }}>
+          <Link to="/solutions" className="solutions__view-all">
             See all solutions →
           </Link>
         </div>

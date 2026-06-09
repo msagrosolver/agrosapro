@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import soilImage from '../../assets/product-soil-conditioner.jpg';
 import growthImage from '../../assets/product-growth-regulator.jpg';
@@ -155,7 +155,26 @@ function ProductCard({ product, image, wide }) {
 
 function Products() {
   const [activeTab, setActiveTab] = useState('soil');
+  const scrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const activeContent = useMemo(() => tabs.find((tab) => tab.id === activeTab), [activeTab]);
+  const allMobileProducts = tabs.flatMap((tab) =>
+    tab.products.map((product) => ({
+      ...product,
+      categoryLabel: tab.label,
+      categoryId: tab.id,
+      image: product.image || tab.image,
+      to: productLinks[product.name] || '#',
+    }))
+  );
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const scrollLeft = scrollRef.current.scrollLeft;
+    const width = scrollRef.current.offsetWidth;
+    const index = Math.round(scrollLeft / (width - 32));
+    setActiveIndex(index);
+  };
 
   return (
     <section id="products" className="products section section--cream">
@@ -169,7 +188,7 @@ function Products() {
           </p>
         </div>
 
-        <div className="products__tabs" role="tablist" aria-label="Product categories">
+        <div className="products__tabs products__tabs--desktop" role="tablist" aria-label="Product categories">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -188,7 +207,7 @@ function Products() {
 
         <div
           id={`panel-${activeContent.id}`}
-          className="products__panel"
+          className="products__panel products__panel--desktop"
           role="tabpanel"
           aria-labelledby={`tab-${activeContent.id}`}
         >
@@ -207,7 +226,7 @@ function Products() {
             ))}
           </div>
 
-          <div className="products__panel-footer" style={{ marginTop: '32px', textAlign: 'center' }}>
+          <div className="products__panel-footer">
             <Link
               className="products__view-all"
               to={
@@ -217,22 +236,55 @@ function Products() {
                     ? '/products/growth-regulators'
                     : '/products/feed-additives'
               }
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                color: '#2D5A1B',
-                fontSize: '15px',
-                fontWeight: 600,
-                textDecoration: 'none',
-                padding: '10px 24px',
-                border: '1.5px solid rgba(45, 90, 27, 0.3)',
-                borderRadius: '999px',
-                transition: 'all 0.2s ease',
-              }}
             >
               View full {activeContent.label} range →
             </Link>
+          </div>
+        </div>
+
+        <div className="products__mobile">
+          <div className="products__mobile-category">
+            <span key={allMobileProducts[activeIndex]?.categoryLabel}>
+              {allMobileProducts[activeIndex]?.categoryLabel}
+            </span>
+          </div>
+
+          <div className="products__swipe-track" ref={scrollRef} onScroll={handleScroll}>
+            {allMobileProducts.map((product) => (
+              <div className="products__swipe-card" key={product.name}>
+                <div className="products__swipe-image">
+                  <img src={product.image} alt={product.name} loading="lazy" />
+                </div>
+                <div className="products__swipe-body">
+                  <p className="products__swipe-type">{product.type}</p>
+                  <h4 className="products__swipe-name">{product.name}</h4>
+                  <p className="products__swipe-desc">{product.use}</p>
+                  <Link className="products__swipe-btn" to={product.to}>
+                    View details →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="products__dots" aria-hidden="true">
+            {allMobileProducts.map((product, i) => (
+              <button
+                key={product.name}
+                type="button"
+                className={`products__dot ${activeIndex === i ? 'products__dot--active' : ''}`}
+                onClick={() => {
+                  if (scrollRef.current) {
+                    scrollRef.current.scrollTo({
+                      left: i * (scrollRef.current.offsetWidth - 32),
+                      behavior: 'smooth',
+                    });
+                    setActiveIndex(i);
+                  }
+                }}
+                aria-label={product.name}
+              />
+            ))}
           </div>
         </div>
       </div>

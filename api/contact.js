@@ -23,20 +23,20 @@ export default async function handler(req, res) {
     },
     to: [{ email: toEmail, name: 'Agrosapro' }],
     replyTo: { email: email, name: name },
-    subject: `New enquiry from ${name}${company ? ` — ${company}` : ''}`,
+    subject: `Új megkeresés — ${name}${company ? ` — ${company}` : ''}`,
     htmlContent: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #2D5A1B;">New Agrosapro Enquiry</h2>
+        <h2 style="color: #2D5A1B;">Új megkeresés — Agrosapro</h2>
         <table style="width: 100%; border-collapse: collapse;">
-          <tr><td style="padding: 8px 0; color: #797979; width: 120px;">Name</td><td style="padding: 8px 0; font-weight: 600;">${name}</td></tr>
-          ${company ? `<tr><td style="padding: 8px 0; color: #797979;">Company</td><td style="padding: 8px 0; font-weight: 600;">${company}</td></tr>` : ''}
+          <tr><td style="padding: 8px 0; color: #797979; width: 120px;">Név</td><td style="padding: 8px 0; font-weight: 600;">${name}</td></tr>
+          ${company ? `<tr><td style="padding: 8px 0; color: #797979;">Cég</td><td style="padding: 8px 0; font-weight: 600;">${company}</td></tr>` : ''}
           <tr><td style="padding: 8px 0; color: #797979;">Email</td><td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #2D5A1B;">${email}</a></td></tr>
-          ${country ? `<tr><td style="padding: 8px 0; color: #797979;">Country</td><td style="padding: 8px 0;">${country}</td></tr>` : ''}
+          ${country ? `<tr><td style="padding: 8px 0; color: #797979;">Ország</td><td style="padding: 8px 0;">${country}</td></tr>` : ''}
         </table>
         <div style="margin-top: 24px; padding: 16px; background: #F7F7F7; border-radius: 8px; border-left: 3px solid #2D5A1B;">
           <p style="margin: 0; color: #1C1C1E; line-height: 1.7;">${message.replace(/\n/g, '<br>')}</p>
         </div>
-        <p style="margin-top: 24px; color: #797979; font-size: 13px;">Sent from agrosapro.eu contact form</p>
+        <p style="margin-top: 24px; color: #797979; font-size: 13px;">Elküldve az agrosapro.eu kapcsolati űrlapján keresztül</p>
       </div>
     `,
   };

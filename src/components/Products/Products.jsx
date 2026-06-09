@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import soilImage from '../../assets/product-soil-conditioner.jpg';
 import growthImage from '../../assets/product-growth-regulator.jpg';
 import feedImage from '../../assets/product-feed-additive.jpg';
+import growthIntroFrontImage from '../../assets/images/growth-intro-front.jpg';
+import soilIntroBackImage from '../../assets/images/soil-intro-back.jpg';
 import './Products.css';
 
 const productLinks = {
@@ -36,6 +38,7 @@ const tabs = [
       {
         name: 'Agrosapro pHoenix',
         type: 'Granulate',
+        image: soilIntroBackImage,
         use: 'Advanced pH correction and soil remediation',
         benefits: [
           'Neutralizes both natural and chemically-induced soil acidity',
@@ -69,6 +72,7 @@ const tabs = [
       {
         name: 'Agrosapro Complex',
         type: 'Liquid concentrate',
+        image: growthIntroFrontImage,
         use: 'Full-spectrum NPK with humic/fulvic acid framework',
         benefits: [
           'Acts as both fertility accumulator and functional mineral fertilizer',
@@ -197,7 +201,7 @@ function Products() {
               <ProductCard
                 key={product.name}
                 product={product}
-                image={activeContent.image}
+                image={product.image || activeContent.image}
                 wide={activeContent.id === 'feed'}
               />
             ))}

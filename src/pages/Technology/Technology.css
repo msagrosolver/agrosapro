@@ -282,7 +282,12 @@
     padding: 0 8px;
   }
 
+  .tech-results__value {
+    margin-top: 4px !important;
+  }
+
   .tech-results__stats {
+    margin-top: 16px;
     padding: 0 8px;
   }
 

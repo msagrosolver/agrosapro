@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import technologyImage from '../../assets/technology-sapropel.jpg';
 import './Technology.css';
@@ -41,6 +42,9 @@ const comparisons = [
 ];
 
 function Technology() {
+  const [textExpanded, setTextExpanded] = useState(false);
+  const [openComparison, setOpenComparison] = useState(null);
+
   return (
     <section id="technology" className="technology section section--cream">
       <div className="container">
@@ -48,22 +52,31 @@ function Technology() {
           <div className="technology__copy">
             <p className="eyebrow">Technology</p>
             <h2 className="section-heading">The science behind sapropel</h2>
-            <p>
-              The basis of all Agrosapro preparations is a mixture of lowland peat and sapropel, deep bottom sediments
-              from pristine freshwater lakes. These are a natural source of humic and fulvic acids, which influence soil
-              metabolic processes by releasing active substances and nutrients, contributing to biocenosis and driving
-              more intensive development of soil microbiota.
-            </p>
-            <p>
-              The general principles of humic substance extraction have been known for over 200 years. What distinguishes
-              Agrosapro products is production technology and raw material quality. Deep physical and chemical processing
-              through dispersion and extraction isolates bioactive complexes, amino acids, macroelements and
-              microelements.
-            </p>
-            <p>
-              The result is a stable, reproducible composition, not variable like classic organic fertilizers, delivering
-              consistent agronomic performance across seasons and geographies.
-            </p>
+            <div className={`technology__copy-body ${textExpanded ? 'is-expanded' : 'is-collapsed'}`}>
+              <p>
+                The basis of all Agrosapro preparations is a mixture of lowland peat and sapropel, deep bottom sediments
+                from pristine freshwater lakes. These are a natural source of humic and fulvic acids, which influence soil
+                metabolic processes by releasing active substances and nutrients, contributing to biocenosis and driving
+                more intensive development of soil microbiota.
+              </p>
+              <p>
+                The general principles of humic substance extraction have been known for over 200 years. What distinguishes
+                Agrosapro products is production technology and raw material quality. Deep physical and chemical processing
+                through dispersion and extraction isolates bioactive complexes, amino acids, macroelements and
+                microelements.
+              </p>
+              <p>
+                The result is a stable, reproducible composition, not variable like classic organic fertilizers, delivering
+                consistent agronomic performance across seasons and geographies.
+              </p>
+            </div>
+            <button
+              className="technology__read-more"
+              onClick={() => setTextExpanded((v) => !v)}
+              type="button"
+            >
+              {textExpanded ? 'Show less ↑' : 'Read more ↓'}
+            </button>
             <Link
               to="/technology"
               className="button button--outline"
@@ -82,7 +95,6 @@ function Technology() {
                 <article className="composition-card" key={item.label}>
                   <strong>{item.value}</strong>
                   <h3>{item.label}</h3>
-                  <p>{item.text}</p>
                 </article>
               ))}
             </div>
@@ -91,9 +103,35 @@ function Technology() {
 
         <div className="technology__comparisons" aria-label="Agrosapro advantages">
           {comparisons.map((item) => (
-            <article className="comparison-card" key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
+            <article
+              key={item.title}
+              className={`comparison-card comparison-card--accordion ${openComparison === item.title ? 'is-open' : ''}`}
+            >
+              <button
+                className="comparison-card__trigger"
+                onClick={() => setOpenComparison(openComparison === item.title ? null : item.title)}
+                type="button"
+              >
+                <span>{item.title}</span>
+                <svg
+                  className="comparison-card__chevron"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M4 6l4 4 4-4"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <div className="comparison-card__body">
+                <p>{item.text}</p>
+              </div>
             </article>
           ))}
         </div>

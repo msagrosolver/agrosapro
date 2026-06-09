@@ -28,9 +28,10 @@
   object-fit: cover;
 }
 
+/* Composition grid — always 2x2 */
 .technology__composition {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -42,20 +43,24 @@
 }
 
 .composition-card {
-  padding: 18px;
+  padding: 20px 16px;
+  text-align: center;
 }
 
 .composition-card strong {
   display: block;
   color: var(--color-accent);
-  font-size: 1.65rem;
+  font-size: 1.8rem;
+  font-weight: 700;
   line-height: 1;
 }
 
 .composition-card h3 {
-  margin: 10px 0 0;
-  font-size: 1rem;
-  line-height: 1.2;
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  line-height: 1.3;
 }
 
 .composition-card p,
@@ -82,12 +87,132 @@
   line-height: 1.25;
 }
 
-@media (min-width: 720px) {
-  .technology__composition {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+/* Collapsible text body */
+.technology__copy-body p {
+  text-align: justify;
+}
+
+@media (max-width: 719px) {
+  .technology__copy-body.is-collapsed {
+    max-height: 100px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .technology__copy-body.is-collapsed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: linear-gradient(to bottom, transparent, var(--color-bg-section));
+    pointer-events: none;
+  }
+
+  .technology__copy-body.is-expanded {
+    max-height: none;
   }
 }
 
+@media (min-width: 720px) {
+  .technology__copy-body.is-collapsed,
+  .technology__copy-body.is-expanded {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .technology__copy-body.is-collapsed::after {
+    display: none;
+  }
+}
+
+/* Read more button */
+.technology__read-more {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  background: transparent;
+  border: 1.5px solid rgba(45, 90, 27, 0.3);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.technology__read-more:hover {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+}
+
+@media (max-width: 719px) {
+  .technology__read-more {
+    display: inline-flex;
+  }
+}
+
+/* Accordion comparison cards */
+.comparison-card--accordion {
+  padding: 0;
+  overflow: hidden;
+}
+
+.comparison-card__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.25;
+  gap: 12px;
+}
+
+.comparison-card__trigger:hover {
+  background: rgba(45, 90, 27, 0.04);
+}
+
+.comparison-card__chevron {
+  flex-shrink: 0;
+  color: var(--color-primary);
+  transition: transform 0.25s ease;
+}
+
+.comparison-card--accordion.is-open .comparison-card__chevron {
+  transform: rotate(180deg);
+}
+
+.comparison-card__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 20px;
+}
+
+.comparison-card--accordion.is-open .comparison-card__body {
+  max-height: 300px;
+  padding: 0 20px 18px;
+}
+
+.comparison-card__body p {
+  margin: 0;
+  text-align: justify;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* Desktop: comparisons stay as 3-col grid, accordion still works but all open */
 @media (min-width: 980px) {
   .technology__layout {
     grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1fr);
@@ -97,5 +222,20 @@
 
   .technology__comparisons {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .comparison-card--accordion.is-open .comparison-card__body,
+  .comparison-card--accordion .comparison-card__body {
+    max-height: none;
+    padding: 0 20px 20px;
+  }
+
+  .comparison-card__chevron {
+    display: none;
+  }
+
+  .comparison-card__trigger {
+    cursor: default;
+    pointer-events: none;
   }
 }

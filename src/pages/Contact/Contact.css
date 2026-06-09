@@ -201,6 +201,12 @@
   transform: translateY(-1px);
 }
 
+.contact-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .contact-privacy {
   margin: -10px 0 0;
   color: var(--color-text-muted);

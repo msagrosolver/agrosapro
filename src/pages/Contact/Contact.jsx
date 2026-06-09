@@ -41,7 +41,7 @@ function Contact() {
     if (error) setError('');
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const name = form.name.trim();
@@ -53,9 +53,36 @@ function Contact() {
       return;
     }
 
-    setForm(initialForm);
-    setStatus('success');
+    setStatus('sending');
     setError('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          company: form.company.trim(),
+          email: form.email.trim(),
+          country: form.country.trim(),
+          message: form.message.trim(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || 'Something went wrong. Please try again.');
+        setStatus('idle');
+        return;
+      }
+
+      setForm(initialForm);
+      setStatus('success');
+    } catch {
+      setError('Network error. Please check your connection and try again.');
+      setStatus('idle');
+    }
   };
 
   return (
@@ -178,12 +205,16 @@ function Contact() {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span>Thank you. We will be in touch soon.</span>
+              <span>Thank you. We will be in touch within 24-48 hours.</span>
             </div>
           ) : (
             <>
-              <button type="submit" className="contact-submit">
-                Send enquiry
+              <button
+                type="submit"
+                className="contact-submit"
+                disabled={status === 'sending'}
+              >
+                {status === 'sending' ? 'Sending...' : 'Send enquiry'}
               </button>
               <p className="contact-privacy">We use your details only to respond to this enquiry.</p>
             </>

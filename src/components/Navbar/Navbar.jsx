@@ -71,16 +71,24 @@ function Navbar() {
         <nav className={`navbar__nav ${isOpen ? 'navbar__nav--open' : ''}`} aria-label="Primary navigation">
           <div
             className={`nav-item-dropdown ${isProductsOpen ? 'is-open' : ''}`}
-            onMouseEnter={() => setIsProductsOpen(true)}
-            onMouseLeave={() => setIsProductsOpen(false)}
+            onMouseEnter={() => {
+              if (window.innerWidth >= 900) setIsProductsOpen(true);
+            }}
+            onMouseLeave={() => {
+              if (window.innerWidth >= 900) setIsProductsOpen(false);
+            }}
           >
             <button
               className="dropdown-trigger"
               type="button"
               aria-expanded={isProductsOpen}
               onClick={() => {
-                navigate('/products');
-                setIsProductsOpen((v) => !v);
+                if (window.innerWidth >= 900) {
+                  navigate('/products');
+                  setIsProductsOpen((v) => !v);
+                } else {
+                  setIsProductsOpen((v) => !v);
+                }
               }}
             >
               Products

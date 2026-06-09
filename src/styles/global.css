@@ -171,7 +171,12 @@ button {
 
 @media (max-width: 520px) {
   .container {
-    width: min(100% - 32px, var(--container));
+    width: min(100% - 40px, var(--content-max));
+  }
+
+  main {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .button {

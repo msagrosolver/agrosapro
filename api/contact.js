@@ -3,30 +3,40 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, company, email, country, message } = req.body;
+  const { name, company, email, country, message, department } = req.body;
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Name, email and message are required.' });
   }
 
   const apiKey = process.env.BREVO_API_KEY;
-  const toEmail = process.env.CONTACT_EMAIL_TO;
 
-  if (!apiKey || !toEmail) {
+  if (!apiKey) {
     return res.status(500).json({ error: 'Server configuration error.' });
   }
 
+  const isSales = department === 'sales';
+
+  const senderEmail = isSales ? 'da@agrosapro.eu' : 'info@agrosapro.eu';
+  const senderName = isSales ? 'Agrosapro Sales' : 'Agrosapro';
+  const toEmail = isSales ? 'da@agrosapro.eu' : 'info@agrosapro.eu';
+  const toName = isSales ? 'Agrosapro Sales (India & Egypt)' : 'Agrosapro Customer Service';
+  const departmentLabel = isSales ? 'Sales — India & Egypt' : 'Customer Service / General Enquiry';
+
   const emailBody = {
     sender: {
-      name: 'Agrosapro Contact Form',
-      email: 'msagrosolverkft@gmail.com',
+      name: senderName,
+      email: senderEmail,
     },
-    to: [{ email: toEmail, name: 'Agrosapro' }],
+    to: [{ email: toEmail, name: toName }],
     replyTo: { email: email, name: name },
-    subject: `Új megkeresés — ${name}${company ? ` — ${company}` : ''}`,
+    subject: `Új megkeresés (${departmentLabel}) — ${name}${company ? ` — ${company}` : ''}`,
     htmlContent: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #2D5A1B;">Új megkeresés — Agrosapro</h2>
+        <p style="margin: 0 0 16px; color: #797979; font-size: 13px;">
+          <strong>Kategória:</strong> ${departmentLabel}
+        </p>
         <table style="width: 100%; border-collapse: collapse;">
           <tr><td style="padding: 8px 0; color: #797979; width: 120px;">Név</td><td style="padding: 8px 0; font-weight: 600;">${name}</td></tr>
           ${company ? `<tr><td style="padding: 8px 0; color: #797979;">Cég</td><td style="padding: 8px 0; font-weight: 600;">${company}</td></tr>` : ''}

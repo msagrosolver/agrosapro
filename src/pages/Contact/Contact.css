@@ -91,6 +91,48 @@
   color: var(--color-primary);
 }
 
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-channels .contact-email {
+  align-items: flex-start;
+  gap: 11px;
+}
+
+.contact-channels .contact-email span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-channels .contact-email strong {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.contact-channels .contact-email em {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.contact-channels .contact-email small {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.contact-channels .contact-email:hover strong,
+.contact-channels .contact-email:hover em,
+.contact-channels .contact-email:hover small {
+  color: var(--color-primary);
+}
+
 .contact-points {
   display: flex;
   flex-wrap: wrap;
@@ -146,6 +188,7 @@
 }
 
 .contact-field input,
+.contact-field select,
 .contact-field textarea {
   width: 100%;
   box-sizing: border-box;
@@ -159,6 +202,16 @@
   transition: border-color 180ms ease;
 }
 
+.contact-field select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%232D5A1B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
 .contact-field textarea {
   min-height: 128px;
   resize: vertical;
@@ -166,6 +219,7 @@
 }
 
 .contact-field input:focus,
+.contact-field select:focus,
 .contact-field textarea:focus {
   border-bottom-color: var(--color-primary);
 }

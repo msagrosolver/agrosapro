@@ -7,6 +7,7 @@ const initialForm = {
   company: '',
   email: '',
   country: '',
+  department: 'general',
   message: '',
 };
 
@@ -65,6 +66,7 @@ function Contact() {
           company: form.company.trim(),
           email: form.email.trim(),
           country: form.country.trim(),
+          department: form.department,
           message: form.message.trim(),
         }),
       });
@@ -101,24 +103,52 @@ function Contact() {
 
           <div className="contact-divider" />
 
-          <a className="contact-email" href="mailto:info@agrosapro.eu">
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M4 6.5h16v11H4z"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                strokeLinejoin="round"
-              />
-              <path
-                d="m5 7 7 6 7-6"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span>info@agrosapro.eu</span>
-          </a>
+          <div className="contact-channels">
+            <a className="contact-email" href="mailto:info@agrosapro.eu">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 6.5h16v11H4z"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="m5 7 7 6 7-6"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>
+                <strong>Customer Service</strong>
+                <small>info@agrosapro.eu</small>
+              </span>
+            </a>
+
+            <a className="contact-email" href="mailto:da@agrosapro.eu">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 6.5h16v11H4z"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="m5 7 7 6 7-6"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>
+                <strong>Sales</strong>
+                <em>Dennis Adegbite — India &amp; Egypt</em>
+                <small>da@agrosapro.eu</small>
+              </span>
+            </a>
+          </div>
 
           <div className="contact-points" aria-label="Contact highlights">
             <span>European partners</span>
@@ -128,6 +158,19 @@ function Contact() {
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit} noValidate>
+          <label className="contact-field" style={{ '--field-delay': '0.15s' }}>
+            <span>How can we help?</span>
+            <select
+              name="department"
+              value={form.department}
+              onChange={handleChange}
+              required
+            >
+              <option value="general">General Enquiry / Customer Service</option>
+              <option value="sales">Sales — India &amp; Egypt</option>
+            </select>
+          </label>
+
           <label className="contact-field" style={{ '--field-delay': '0.25s' }}>
             <span>Full Name</span>
             <input

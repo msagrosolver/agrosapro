@@ -60,6 +60,33 @@
   color: var(--color-accent);
 }
 
+.footer__contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+
+.footer__contact-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.footer__contact-name {
+  margin-bottom: 2px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.footer__contact-item a {
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .footer__bottom {
   display: flex;
   flex-direction: column;

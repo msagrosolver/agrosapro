@@ -33,7 +33,15 @@ function Footer() {
 
         <div className="footer__contact">
           <h2>Contact</h2>
-          <a href="mailto:info@agrosapro.eu">info@agrosapro.eu</a>
+          <div className="footer__contact-item">
+            <span className="footer__contact-label">Customer Service</span>
+            <a href="mailto:info@agrosapro.eu">info@agrosapro.eu</a>
+          </div>
+          <div className="footer__contact-item">
+            <span className="footer__contact-label">Sales</span>
+            <span className="footer__contact-name">Dennis Adegbite — India &amp; Egypt</span>
+            <a href="mailto:da@agrosapro.eu">da@agrosapro.eu</a>
+          </div>
           <p>EU distribution inquiries welcome</p>
         </div>
       </div>
